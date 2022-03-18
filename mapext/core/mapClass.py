@@ -23,13 +23,13 @@ import os
 
 # I: PROCESS CLASS
 class astroMap():
-    
+
     def __init__(self,
                  survey=None,name=None,reference=None,
                  filename=None,
                  frequency=None,wavelength=None,beamwidth=None,
                  resolution=None,projection=None,unit=None,error={},
-                 notes=[],
+                 note=[],
                  test=False):
         if test: # TEST VARIABLES FOR PIPELINE CHECKS
             # NAMES
@@ -49,7 +49,7 @@ class astroMap():
             self.PROJ = 'CART' #CART or HPX
             self.ERRS = {'CALIBRATION':1*u.pc}
             # AOB
-            self.NOTE = notes
+            self.NOTE = note
             # MAP
             self.MAP = np.ones((101,201))*(u.MJy/u.sr)
             self.WCS = WCS(naxis=2)
@@ -78,7 +78,7 @@ class astroMap():
             self.PROJ = projection
             self.ERRS = error
             # AOB
-            self.NOTE = notes
+            self.NOTE = note
             self.WCS, self.MAP = self.load_map()
             if unit=='KCMB':
                 self.MAP *= u.K
@@ -151,8 +151,8 @@ class astroMap():
 
         if update:
             self.MAP = map_final
+            self.NOTE.append('UNIT CONVERTED FROM {} TO {}'.format(self.UNIT, units))
             self.UNIT = units
-            self.NOTE.append('UNIT CONVERTED TO {}'.format(self.UNIT))
             return
         else:
             return map_final, self.WCS
@@ -175,6 +175,7 @@ class astroMap():
                    target_pix=1*u.arcmin,
                    minScale=1,
                    update_map=True):
+        current_pix = abs(self.WCS.wcs.cdelt[0])*u.degree.to(u.arcmin)
         sf = int((target_pix/(self.WCS.wcs.cdelt[0]*u.degree)).decompose().value)
         if sf>minScale:
             print('Downscaling by a factor of {}'.format(sf))
@@ -193,8 +194,8 @@ class astroMap():
 
         if update_map:
             self.MAP = new_map
+            self.NOTE.append('MAP DOWNSAMPLED FROM {} TO {}'.format(current_pix,target_pix))
             self.WCS = new_wcs
-            self.NOTE.append('MAP DOWNSAMPLED TO {}'.format(target_pix))
             return
         else:
             return new_map, new_wcs
@@ -216,8 +217,8 @@ class astroMap():
             print('aperture error')
         if update_map:
             self.MAP = map_final
+            self.NOTE.append('MAP SMOOTHED FROM {} TO {}'.format(self.RESO, target_res))
             self.RESO = target_res
-            self.NOTE.append('MAP SMOOTHED TO {}'.format(self.RESO))
             return
         else:
             return map_final, target_resolution
@@ -347,8 +348,8 @@ class astroMap():
                      'note':        np.array(self.NOTE,dtype='<S200')}
         return out_dict
 
-    def save_out(self):
-        hdu = fits.PrimaryHDU(self.MAP,header=self.WCS.to_header())
+    def save_out(self,ow=True,suffix='proc20220308'):
+        hdu = fits.PrimaryHDU(self.MAP.value,header=self.WCS.to_header())
         hdul = fits.HDUList(hdu)
         # Add keywords
         kw = self.return_dictionary()
@@ -356,12 +357,12 @@ class astroMap():
             for __ in kw[_]:
                 hdul[0].header[__] = str(kw[_][__])
         for _l,l in enumerate(self.NOTE):
-            lab = 'NOTE{:02d}'.format(_l+1)
-            hdul[0].header[lab] = self.NOTE[_l]
+            hdul[0].header['COMMENT'] = self.NOTE[_l]
         # Save out
-        outfilename = '{}_processed.fits'.format(self.ID)
+        outfilename = '{}_{}.fits'.format(self.ID,suffix)
         try:
             hdul.writeto(outfilename,overwrite=ow)
         except:
             print('File already exists - not overwritten')
-        return wcs, map
+        del hdul
+        return

@@ -41,19 +41,29 @@ class astroSrc():
         if fluxes != None:
             self.flux =  fluxes
         else:
-            self.flux = np.zeros((0)).astype([('method','S16'),('survey','S16'),('name','S32'),('nu', float), ('Sv', float), ('Sv_e', float)])
+            self.flux = np.zeros((0)).astype([('method','S50'),('survey','S50'),('name','S50'),('nu', float), ('Sv', float), ('Sv_e', float)])
 
         if component_fluxes != None:
             self.comp_flux =  component_fluxes
         else:
-            self.comp_flux = np.zeros((0)).astype([('component','S16'),('name','S32'),('nu', float), ('Sv', float), ('Sv_e', float)])
+            self.comp_flux = np.zeros((0)).astype([('component','S50'),('name','S50'),('nu', float), ('Sv', float), ('Sv_e', float)])
 
         if src_models != None:
             self.src_model =  src_models
         else:
-            self.src_model = np.zeros((0)).astype([('survey','S16'),('name','S32'),('nu', float), ('params', float, (6)),('params_e', float, (6))])
+            self.src_model = np.zeros((0)).astype([('survey','S50'),('name','S50'),('nu', float), ('params', float, (6)),('params_e', float, (6))])
 
         self.NOTE = notes
+
+    def load_src(self,srcfile=None):
+        if srcfile == None:
+            srcfile = 'SRCHDF5/'+self.ID
+        f = h5py.File(srcfile,'r')
+        params = h5PullDict(f)
+        f.close()
+        self.COORD = f['general/COORD']
+        self.NAME = f['general/NAME']
+        self.add_flux(f['fluxes/total_flux'])
 
     def update(self,
                coord=None,name=None,referance=None,
@@ -76,11 +86,15 @@ class astroSrc():
             self.NOTE = notes
 
     def add_src_model(self, data):
-        data = np.array(data,dtype=[('survey','S16'),('name','S32'),('nu', float), ('params', float, (6)),('params_e', float, (6))])
+        data = np.array(data,dtype=[('survey','S50'),('name','S50'),('nu', float), ('params', float, (6)),('params_e', float, (6))])
         self.src_model = np.concatenate((self.src_model,data))
 
     def add_flux(self, data):
-        data = np.array(data,dtype=[('method','S16'),('survey','S16'),('name','S32'),('nu', float), ('Sv', float), ('Sv_e', float)])
+        data = np.array(data,dtype=[('method','S50'),('survey','S50'),('name','S50'),('nu', float), ('Sv', float), ('Sv_e', float)])
+        self.flux = np.concatenate((self.flux,data))
+
+    def add_compflux(self, data):
+        data = np.array(data,dtype=[('component','S50'),('name','S50'),('nu', float), ('Sv', float), ('Sv_e', float)])
         self.flux = np.concatenate((self.flux,data))
 
     def return_dictionary(self):

@@ -1,5 +1,6 @@
 import h5py
 import os
+import numpy as np
 
 def h5PullDict(obj):
     out = {}
@@ -30,3 +31,16 @@ def h5PushDict(obj, dic, ow=True):
 def ensure_dir(dir):
     if not os.path.exists(dir):
         os.makedirs(dir)
+
+def set_lims(data,lower=0.05,sym=True,upper=0.95):
+    if sym:
+        upper = 1-lower
+    mask = np.all([np.isfinite(data),data!=0],axis=0)
+    hist,edge = np.histogram(data[mask], bins=np.linspace(np.nanmin(data),
+                                                       np.nanmax(data),
+                                                       1001))
+    cen = 0.5*(edge[1:]+edge[:-1])
+    hist = np.cumsum(hist)
+    hist = hist/np.max(hist)
+    lims = np.interp([lower,upper],hist,cen)
+    return lims
