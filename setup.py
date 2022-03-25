@@ -6,8 +6,8 @@ exec(open("mapext/version.py").read())
 config = {
           'name':'mapext',
           'version':__version__,
-          'packages':['mapext','mapext.analysis','mapext.core','mapext.io'],
-          #'package_data':{'':["*.dat","gains.hd5"]},
+          'packages':['mapext','mapext.analysis','mapext.core','mapext.io','mapext.catalogues'],
+          'package_data':{'':["*.fit","*.fits"]},
           #'include_package_data':True,
           }
 

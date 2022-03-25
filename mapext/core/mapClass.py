@@ -20,6 +20,9 @@ from skimage.measure import block_reduce
 from copy import deepcopy
 import reproject
 import os
+from tqdm import tqdm
+
+from mapext.core.usefulFunctions import set_lims_inplace
 
 # I: PROCESS CLASS
 class astroMap():
@@ -163,13 +166,13 @@ class astroMap():
                          order=self.WCS['ORDER'],
                          frame=Galactic())
             coords = hp.healpix_to_skycoord(np.arange(self.map.shape[0]))
-            return coords
         else:
             x,y = np.meshgrid(np.arange(self.MAP.shape[1]),
                               np.arange(self.MAP.shape[0]),
                               sparse=True)
             coords = self.WCS.pixel_to_world(x,y)
-            return coords
+
+        return coords
 
     def downsample(self,
                    target_pix=1*u.arcmin,
@@ -225,7 +228,7 @@ class astroMap():
 
     def quickplot(self,map_kwargs={}):
         ax = plt.subplot(projection=self.WCS)
-        ax.imshow(self.MAP.value,**map_kwargs)
+        ax.imshow(self.MAP.value,**map_kwargs,**set_lims_inplace(self.MAP.value))
         ax.coords['glon'].set_major_formatter('d.dd')
         ax.coords['glat'].set_major_formatter('d.dd')
         plt.show()

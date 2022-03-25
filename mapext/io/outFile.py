@@ -39,8 +39,22 @@ class outFileHandler():
             f['/sources/'+source.NAME] = h5py.ExternalLink('SRCHDF5/'+source.NAME, '/')
         f.close()
 
-    def save_map(self, source, map, wcs, name):
-        sf = h5py.File(self.DIR+'/SRCHDF5/'+source.NAME,'a')
+    def add_region(self,region):
+        ensure_dir(self.DIR+'/SRCHDF5/')
+        # create and populate source file
+        sf = h5py.File(self.DIR+'/SRCHDF5/'+region.NAME,'a')
+        h5PushDict(sf,region.return_dictionary(),ow=True)
+        sf.close()
+        # create link to file
+        f = h5py.File(self.DIR+'/'+self.NAME,'a')
+        if '/regions' not in f:
+            f.create_group('regions')
+        if region.NAME not in f['/regions/']:
+            f['/regions/'+region.NAME] = h5py.ExternalLink('SRCHDF5/'+region.NAME, '/')
+        f.close()
+
+    def save_map(self, obj, map, wcs, name):
+        sf = h5py.File(self.DIR+'/SRCHDF5/'+obj.NAME,'a')
         dir = '/maps/'+name
         if dir in sf:
             del sf[dir]

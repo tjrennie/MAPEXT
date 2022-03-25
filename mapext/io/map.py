@@ -4,7 +4,7 @@ import astropy.units as u
 import matplotlib.pyplot as plt
 from reproject import reproject_interp
 from astropy.wcs import wcs
-from matplotlib.colors import SymLogNorm
+from matplotlib.colors import LogNorm,SymLogNorm
 
 # def detect_ridges(gray, sigma=1.0):
 #     H_elems = hessian_matrix(gray, sigma=sigma, order='rc')
@@ -16,7 +16,7 @@ from mapext.core.processClass import Process
 from mapext.core.mapClass import astroMap
 from mapext.core.srcClass import astroSrc
 from mapext.io.outFile import outFileHandler
-from mapext.core.usefulFunctions import set_lims
+from mapext.core.usefulFunctions import set_lims_inplace
 
 tab20_clrs = np.loadtxt('mapext/core/tab20.txt', delimiter=' ')/255
 tab10_clrs = np.loadtxt('mapext/core/tab10.txt', delimiter=' ')/255
@@ -52,9 +52,8 @@ class map_with_srcs(Process):
         plt.figure()
         ax = plt.subplot(projection=WCS)
 
-        vmin,vmax = set_lims(MAP.value,lower=0.05)
-
-        plt.imshow(MAP.value,cmap='Greys',vmin=vmin,vmax=vmax)
+        plt.imshow(MAP.value,cmap='Greys',
+                   **set_lims_inplace(MAP.value,lower=0.05))
         # if type(srcs) is dict:
         for __,_ in enumerate(srcs.keys()):
             slst = srcs[_]
@@ -69,7 +68,6 @@ class map_with_srcs(Process):
         plt.show()
 
 
-
 class interest_map(Process):
 
     def run(self,map,sigma=3.0):
@@ -79,16 +77,16 @@ class interest_map(Process):
         H_elems = hessian_matrix(MAP.value+1e3, sigma=sigma, order='rc')
         srcs, ridges = hessian_matrix_eigvals(H_elems)
 
-        fig, ax = plt.subplots(1,3,sharex=True,sharey=True,subplot_kw={'projection':WCS})
-        ax[0].imshow(-ridges,norm=SymLogNorm(1e-3,vmin=-1e-1,vmax=1e-1),cmap='bwr')
-        ax[1].imshow(-srcs,norm=SymLogNorm(1e-3,vmin=-1e-2,vmax=1e-2),cmap='bwr')
+        fig, ax = plt.subplots(1,2,sharex=True,sharey=True,subplot_kw={'projection':WCS})
+        ax[0].imshow(-ridges,**set_lims_inplace(-ridges,sym=True),cmap='bwr')
+        ax[1].imshow(-srcs,**set_lims_inplace(-srcs,sym=True),cmap='bwr')
 
-        VAL = 10**(np.log10(-ridges) - np.log10(-srcs))
+        ax[0].contour(MAP.value,levels=60,colors='black',lw=0.5,
+                      **set_lims_inplace(MAP.value))
+        ax[1].contour(MAP.value,levels=60,colors='black',lw=0.5,
+                      **set_lims_inplace(MAP.value))
 
-        ax[2].imshow(VAL,cmap='Greens')
-        # ax.imshow(srcs,norm=LogNorm(vmin=1e-4,vmax=1e-2),cmap='Greens')
-        ax[0].contour(MAP.value,vmin=-0.03,vmax=0.05,levels=60,colors='black',lw=0.5)
-        ax[1].contour(MAP.value,vmin=-0.03,vmax=0.05,levels=60,colors='black',lw=0.5)
-        ax[2].contour(MAP.value,vmin=-0.03,vmax=0.05,levels=60,colors='black',lw=0.5)
+        ax[0].set_title('Structure')
+        ax[1].set_title('Sources')
 
         plt.show()
