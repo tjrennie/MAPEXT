@@ -41,9 +41,9 @@ class astroReg():
             self.comp_flux = np.zeros((0)).astype([('component','S50'),('name','S50'),('nu', float), ('Sv', float), ('Sv_e', float)])
 
         if reg_bounds != None:
-            self.reg_bounds =  np.array(reg_bounds, dtype=([('survey','S50'),('name','S50'),('nu', float),('bounds', float, (101,2)),('bkg', float, (3))]))
+            self.reg_bounds =  np.array(reg_bounds, dtype=([('survey','S50'),('name','S50'),('nu', float),('bounds', float, (101,2)),('bkg', float, (3)),('bkg2', float, (101,2))]))
         else:
-            self.reg_bounds = np.zeros((0)).astype([('survey','S50'),('name','S50'),('nu', float),('bounds', float, (101,2)),('bkg', float, (3))])
+            self.reg_bounds = np.zeros((0)).astype([('survey','S50'),('name','S50'),('nu', float),('bounds', float, (101,2)),('bkg', float, (3)),('bkg2', float, (101,2))])
 
         if coord != None:
             self.COORD = coord
@@ -94,7 +94,7 @@ class astroReg():
             self.NOTE = notes
 
     def add_reg_bounds(self, data):
-        data = np.array(data,dtype=[('survey','S50'),('name','S50'),('nu', float), ('bounds', float, (101,2)),('bkg', float, (3))])
+        data = np.array(data,dtype=[('survey','S50'),('name','S50'),('nu', float), ('bounds', float, (101,2)),('bkg', float, (3)),('bkg2', float, (101,2))])
         self.reg_bounds = np.concatenate((self.reg_bounds,data))
 
     def add_flux(self, data):

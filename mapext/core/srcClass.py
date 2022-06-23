@@ -21,44 +21,53 @@ from mapext.core.usefulFunctions import h5PullDict
 
 class astroSrc():
 
+    '''
+    Class for holding astronomical objects within MAPEXT runs and functions
+    '''
+
     def __init__(self,
-                 coord=None,name=None,referance=None,
-                 fluxes=None,component_fluxes=None,
+                 coord=None, rad=None, name=None, referance=None,
+                 fluxes=None, component_fluxes=None,
                  src_models=None,
                  notes=None,
                  test=False):
         self.COORD = coord
+        self.RAD = rad
         if name != None:
             self.NAME = name
         else:
-            if self.COORD.b.degree<0:
-                sign = '+'
-            else:
+            if self.COORD.b.degree < 0:
                 sign = '-'
-            self.NAME = 'G{:06.2f}{}{:05.2f}'.format(self.COORD.l.degree,sign,abs(self.COORD.b.degree))
+            else:
+                sign = '+'
+            self.NAME = 'G{:06.2f}{}{:05.2f}'.format(
+                self.COORD.l.degree, sign, abs(self.COORD.b.degree))
         self.REFS = referance
 
         if fluxes != None:
-            self.flux =  fluxes
+            self.flux = fluxes
         else:
-            self.flux = np.zeros((0)).astype([('method','S50'),('survey','S50'),('name','S50'),('nu', float), ('Sv', float), ('Sv_e', float)])
+            self.flux = np.zeros((0)).astype([('method', 'S50'), ('survey', 'S50'), (
+                'name', 'S50'), ('nu', float), ('Sv', float), ('Sv_e', float)])
 
         if component_fluxes != None:
-            self.comp_flux =  component_fluxes
+            self.comp_flux = component_fluxes
         else:
-            self.comp_flux = np.zeros((0)).astype([('component','S50'),('name','S50'),('nu', float), ('Sv', float), ('Sv_e', float)])
+            self.comp_flux = np.zeros((0)).astype(
+                [('component', 'S50'), ('name', 'S50'), ('nu', float), ('Sv', float), ('Sv_e', float)])
 
         if src_models != None:
-            self.src_model =  src_models
+            self.src_model = src_models
         else:
-            self.src_model = np.zeros((0)).astype([('survey','S50'),('name','S50'),('nu', float), ('params', float, (6)),('params_e', float, (6))])
+            self.src_model = np.zeros((0)).astype([('survey', 'S50'), ('name', 'S50'), (
+                'nu', float), ('params', float, (6)), ('params_e', float, (6))])
 
         self.NOTE = notes
 
-    def load_src(self,srcfile=None):
+    def load_src(self, srcfile=None):
         if srcfile == None:
             srcfile = 'SRCHDF5/'+self.ID
-        f = h5py.File(srcfile,'r')
+        f = h5py.File(srcfile, 'r')
         params = h5PullDict(f)
         f.close()
         self.COORD = f['general/COORD']
@@ -66,46 +75,50 @@ class astroSrc():
         self.add_flux(f['fluxes/total_flux'])
 
     def update(self,
-               coord=None,name=None,referance=None,
-               fluxes=None,component_fluxes=None,
+               coord=None, name=None, referance=None,
+               fluxes=None, component_fluxes=None,
                src_models=None,
                notes=None,
                test=False):
         self.COORD = coord
         if name != None:
             self.NAME = name
-        if reference != None:
+        if referance != None:
             self.REFS = referance
         if fluxes != None:
             self.add_flux(fluxes)
         if component_fluxes != None:
-            self.comp_flux =  component_fluxes
+            self.comp_flux = component_fluxes
         if src_models != None:
-            self.src_model =  src_models
+            self.src_model = src_models
         if notes != None:
             self.NOTE = notes
 
     def add_src_model(self, data):
-        data = np.array(data,dtype=[('survey','S50'),('name','S50'),('nu', float), ('params', float, (6)),('params_e', float, (6))])
-        self.src_model = np.concatenate((self.src_model,data))
+        data = np.array(data, dtype=[('survey', 'S50'), ('name', 'S50'), (
+            'nu', float), ('params', float, (6)), ('params_e', float, (6))])
+        self.src_model = np.concatenate((self.src_model, data))
 
     def add_flux(self, data):
-        data = np.array(data,dtype=[('method','S50'),('survey','S50'),('name','S50'),('nu', float), ('Sv', float), ('Sv_e', float)])
-        self.flux = np.concatenate((self.flux,data))
+        data = np.array(data, dtype=[('method', 'S50'), ('survey', 'S50'), (
+            'name', 'S50'), ('nu', float), ('Sv', float), ('Sv_e', float)])
+        self.flux = np.concatenate((self.flux, data))
 
     def add_compflux(self, data):
-        data = np.array(data,dtype=[('component','S50'),('name','S50'),('nu', float), ('Sv', float), ('Sv_e', float)])
-        self.flux = np.concatenate((self.flux,data))
+        data = np.array(data, dtype=[
+                        ('component', 'S50'), ('name', 'S50'), ('nu', float), ('Sv', float), ('Sv_e', float)])
+        self.flux = np.concatenate((self.flux, data))
 
     def return_dictionary(self):
-        out_dict =  {'general':    {'NAME':         self.NAME,
-                                    'COORD':        [self.COORD.l.degree,
-                                                     self.COORD.b.degree],
-                                    'REFS':         self.REFS},
-                     'fluxes':     {'total_flux':   self.flux,
-                                    'comp_flux':    self.comp_flux},
-                     'models':     {'src_model':    self.src_model},
-                     'note':        self.NOTE}
+        out_dict = {'general':    {'NAME':         self.NAME,
+                                   'COORD':        [self.COORD.l.degree,
+                                                    self.COORD.b.degree],
+                                   'REFS':         self.REFS,
+                                   'RAD':         self.RAD},
+                    'fluxes':     {'total_flux':   self.flux,
+                                   'comp_flux':    self.comp_flux},
+                    'models':     {'src_model':    self.src_model},
+                    'note':        self.NOTE}
         return out_dict
 
     # def change_model(self,modelname):

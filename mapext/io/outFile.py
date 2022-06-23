@@ -1,6 +1,7 @@
 import numpy as np
 import h5py
 from mapext.core.usefulFunctions import h5PushDict, ensure_dir
+from astropy.wcs import WCS
 
 class outFileHandler():
 
@@ -28,7 +29,7 @@ class outFileHandler():
     def add_source(self,source):
         ensure_dir(self.DIR+'/SRCHDF5/')
         # create and populate source file
-        sf = h5py.File(self.DIR+'/SRCHDF5/'+source.NAME,'a')
+        sf = h5py.File(self.DIR+'/SRCHDF5/'+source.NAME+'.hdf5','a')
         h5PushDict(sf,source.return_dictionary(),ow=True)
         sf.close()
         # create link to file
@@ -36,13 +37,13 @@ class outFileHandler():
         if '/sources' not in f:
             f.create_group('sources')
         if source.NAME not in f['/sources/']:
-            f['/sources/'+source.NAME] = h5py.ExternalLink('SRCHDF5/'+source.NAME, '/')
+            f['/sources/'+source.NAME] = h5py.ExternalLink('SRCHDF5/'+source.NAME+'.hdf5', '/')
         f.close()
 
     def add_region(self,region):
         ensure_dir(self.DIR+'/SRCHDF5/')
         # create and populate source file
-        sf = h5py.File(self.DIR+'/SRCHDF5/'+region.NAME,'a')
+        sf = h5py.File(self.DIR+'/SRCHDF5/'+region.NAME+'.hdf5','a')
         h5PushDict(sf,region.return_dictionary(),ow=True)
         sf.close()
         # create link to file
@@ -50,11 +51,11 @@ class outFileHandler():
         if '/regions' not in f:
             f.create_group('regions')
         if region.NAME not in f['/regions/']:
-            f['/regions/'+region.NAME] = h5py.ExternalLink('SRCHDF5/'+region.NAME, '/')
+            f['/regions/'+region.NAME] = h5py.ExternalLink('SRCHDF5/'+region.NAME+'.hdf5', '/')
         f.close()
 
     def save_map(self, obj, map, wcs, name):
-        sf = h5py.File(self.DIR+'/SRCHDF5/'+obj.NAME,'a')
+        sf = h5py.File(self.DIR+'/SRCHDF5/'+obj.NAME+'.hdf5','a')
         dir = '/maps/'+name
         if dir in sf:
             del sf[dir]
@@ -65,3 +66,21 @@ class outFileHandler():
         sf[dir].attrs['ctype'] = np.array(wcs.wcs.ctype,dtype='<S30')
         sf[dir].attrs['unit'] = np.array(str(map.unit),dtype='<S30')
         sf.close()
+
+    def rtrv_map(self, obj, name):
+        sf = h5py.File(self.DIR+'/SRCHDF5/'+obj.NAME+'.hdf5','r')
+        dir = '/maps/'+name
+        print(dir)
+
+        map = sf[dir][:]
+        unit = sf[dir].attrs['unit']
+
+        wcs = WCS(naxis=2)
+        wcs.wcs.cdelt = sf[dir].attrs['cdelt']
+        wcs.wcs.crpix = sf[dir].attrs['crpix']
+        wcs.wcs.crval = sf[dir].attrs['crval']
+        wcs.wcs.ctype = [sf[dir].attrs['ctype'][0].decode(),
+                         sf[dir].attrs['ctype'][1].decode()]
+        sf.close()
+
+        return map, unit, wcs
