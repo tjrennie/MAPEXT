@@ -11,6 +11,8 @@ Running default supplied MAPEXT scripts
 
 DevLog
 ------
+**0.0.5 Bug fixes for sample run files**
+
 **0.0.4 Added beam correction algorithms and extended region backend**
  - Beam correction ialgorithms added to produce a model for and them account for a non-gaussian beam with significant sidelobes in the main pipeline
  - Implemented scientific colormaps as default option on some functions to ensure maps and plots are universally readable by all audiences

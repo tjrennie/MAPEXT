@@ -73,7 +73,7 @@ class astroMap():
             self.FILE = filename
             # OBSERVATION
             isdata = [frequency != None, wavelength != None]
-            if isdata[0] == True and isdata[1] == False:
+            if isdata[0] == True:
                 self.FREQ = frequency
                 self.WLEN = 3e8*(u.m*u.Hz)/self.FREQ
             elif isdata[1] and isdata[0] == False:
