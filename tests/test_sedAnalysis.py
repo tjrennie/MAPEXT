@@ -4,7 +4,7 @@ from mapext.emission import models
 import toml
 import numpy as np
 
-fname_map_dict = '/Users/tjrennie/MAPEXT/mapext/tests/mapTests_config.toml'
+fname_map_dict = '/Users/tjrennie/MAPEXT/tests/mapTests_config.toml'
 real_Sv = np.array([21.39, 19.44, 17.96, 17.52, 22.71, 22.58, 22.32, 21.99, 24.74, 55.08, 214.01, 572.24, 1686.33, 4537.50, 12205.65, 12311.73, 9005.56, 7230.43])
 
 class Test_TestSEDAnalysis(unittest.TestCase):
@@ -43,7 +43,7 @@ class Test_TestSEDAnalysis(unittest.TestCase):
             mapext.photometry.gaussian_fitter([mapObj], [src])
         model = models.freeFree_7000k(10) + models.ame_lognormal(10, 30, 0.5) + models.thermalDust(40, 1, 1)
         fitter = mapext.emission.sedFitter_LSQ(model, src, np.pi*np.radians(2/60)**2)
-        fitter.fitSED_quickFit()
+        fitter.fitSED()
         
         J = fitter.fit_info.fit_jacobian(src.flux['freq']/1e9)
         C = fitter.fit_info.cov_matrix.cov_matrix

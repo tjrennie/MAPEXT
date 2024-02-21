@@ -6,7 +6,7 @@
         name = 'Test'
         freq = '1.42 GHz'
     [Test142.I]
-        fname = 'mapext/tests/testdata/SRC1_1.42_CAL0.fits'
+        fname = 'tests/testdata/SRC1_1.42_CAL0.fits'
         header = 0
         unit = 'Jy/pix2'
         resolution = '5.0 arcminute'
@@ -15,7 +15,7 @@
         name = 'Test'
         freq = '2.73 GHz'
     [Test273.I]
-        fname = 'mapext/tests/testdata/SRC1_2.73_CAL0.fits'
+        fname = 'tests/testdata/SRC1_2.73_CAL0.fits'
         header = 0
         unit = 'Jy/pix2'
         resolution = '5.0 arcminute'
@@ -24,7 +24,7 @@
         name = 'Test'
         freq = '5 GHz'
     [Test5.I]
-        fname = 'mapext/tests/testdata/SRC1_5.0_CAL0.fits'
+        fname = 'tests/testdata/SRC1_5.0_CAL0.fits'
         header = 0
         unit = 'Jy/pix2'
         resolution = '5.0 arcminute'
@@ -33,7 +33,7 @@
         name = 'Test'
         freq = '10 GHz'
     [Test10.I]
-        fname = 'mapext/tests/testdata/SRC1_10.0_CAL0.fits'
+        fname = 'tests/testdata/SRC1_10.0_CAL0.fits'
         header = 0
         unit = 'Jy/pix2'
         resolution = '5.0 arcminute'
@@ -42,7 +42,7 @@
         name = 'Test'
         freq = '27 GHz'
     [Test27.I]
-        fname = 'mapext/tests/testdata/SRC1_27.0_CAL0.fits'
+        fname = 'tests/testdata/SRC1_27.0_CAL0.fits'
         header = 0
         unit = 'Jy/pix2'
         resolution = '5.0 arcminute'
@@ -51,7 +51,7 @@
         name = 'Test'
         freq = '29 GHz'
     [Test29.I]
-        fname = 'mapext/tests/testdata/SRC1_29.0_CAL0.fits'
+        fname = 'tests/testdata/SRC1_29.0_CAL0.fits'
         header = 0
         unit = 'Jy/pix2'
         resolution = '5.0 arcminute'
@@ -60,7 +60,7 @@
         name = 'Test'
         freq = '31 GHz'
     [Test31.I]
-        fname = 'mapext/tests/testdata/SRC1_31.0_CAL0.fits'
+        fname = 'tests/testdata/SRC1_31.0_CAL0.fits'
         header = 0
         unit = 'Jy/pix2'
         resolution = '5.0 arcminute'
@@ -69,7 +69,7 @@
         name = 'Test'
         freq = '33 GHz'
     [Test33.I]
-        fname = 'mapext/tests/testdata/SRC1_33.0_CAL0.fits'
+        fname = 'tests/testdata/SRC1_33.0_CAL0.fits'
         header = 0
         unit = 'Jy/pix2'
         resolution = '5.0 arcminute'
@@ -78,7 +78,7 @@
         name = 'Test'
         freq = '90 GHz'
     [Test90.I]
-        fname = 'mapext/tests/testdata/SRC1_90.0_CAL0.fits'
+        fname = 'tests/testdata/SRC1_90.0_CAL0.fits'
         header = 0
         unit = 'Jy/pix2'
         resolution = '5.0 arcminute'
@@ -87,7 +87,7 @@
         name = 'Test'
         freq = '140 GHz'
     [Test140.I]
-        fname = 'mapext/tests/testdata/SRC1_140.0_CAL0.fits'
+        fname = 'tests/testdata/SRC1_140.0_CAL0.fits'
         header = 0
         unit = 'Jy/pix2'
         resolution = '5.0 arcminute'
@@ -96,7 +96,7 @@
         name = 'Test'
         freq = '242 GHz'
     [Test242.I]
-        fname = 'mapext/tests/testdata/SRC1_242.0_CAL0.fits'
+        fname = 'tests/testdata/SRC1_242.0_CAL0.fits'
         header = 0
         unit = 'Jy/pix2'
         resolution = '5.0 arcminute'
@@ -105,7 +105,7 @@
         name = 'Test'
         freq = '353 GHz'
     [Test353.I]
-        fname = 'mapext/tests/testdata/SRC1_353.0_CAL0.fits'
+        fname = 'tests/testdata/SRC1_353.0_CAL0.fits'
         header = 0
         unit = 'Jy/pix2'
         resolution = '5.0 arcminute'
@@ -114,7 +114,7 @@
         name = 'Test'
         freq = '545 GHz'
     [Test545.I]
-        fname = 'mapext/tests/testdata/SRC1_545.0_CAL0.fits'
+        fname = 'tests/testdata/SRC1_545.0_CAL0.fits'
         header = 0
         unit = 'Jy/pix2'
         resolution = '5.0 arcminute'
@@ -123,7 +123,7 @@
         name = 'Test'
         freq = '857 GHz'
     [Test857.I]
-        fname = 'mapext/tests/testdata/SRC1_857.0_CAL0.fits'
+        fname = 'tests/testdata/SRC1_857.0_CAL0.fits'
         header = 0
         unit = 'Jy/pix2'
         resolution = '5.0 arcminute'
@@ -132,7 +132,7 @@
         name = 'Test'
         freq = '1875 GHz'
     [Test1875.I]
-        fname = 'mapext/tests/testdata/SRC1_1875.0_CAL0.fits'
+        fname = 'tests/testdata/SRC1_1875.0_CAL0.fits'
         header = 0
         unit = 'Jy/pix2'
         resolution = '5.0 arcminute'
@@ -141,7 +141,7 @@
         name = 'Test'
         freq = '2143 GHz'
     [Test2143.I]
-        fname = 'mapext/tests/testdata/SRC1_2143.0_CAL0.fits'
+        fname = 'tests/testdata/SRC1_2143.0_CAL0.fits'
         header = 0
         unit = 'Jy/pix2'
         resolution = '5.0 arcminute'
@@ -150,7 +150,7 @@
         name = 'Test'
         freq = '3000 GHz'
     [Test3000.I]
-        fname = 'mapext/tests/testdata/SRC1_3000.0_CAL0.fits'
+        fname = 'tests/testdata/SRC1_3000.0_CAL0.fits'
         header = 0
         unit = 'Jy/pix2'
         resolution = '5.0 arcminute'
@@ -159,7 +159,7 @@
         name = 'Test'
         freq = '3333 GHz'
     [Test3333.I]
-        fname = 'mapext/tests/testdata/SRC1_3333.0_CAL0.fits'
+        fname = 'tests/testdata/SRC1_3333.0_CAL0.fits'
         header = 0
         unit = 'Jy/pix2'
         resolution = '5.0 arcminute'
