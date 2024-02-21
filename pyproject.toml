@@ -1,0 +1,38 @@
+[ project ]
+name = "mapext"
+version = "2024.0.15"
+authors = [
+  { name="Thomas J. Rennie" },
+]
+description = "astronomical Map Analysis, Preparation and EXtraction Tools"
+# long_description = "Astronomical map preperation, processing and analysis software written for Galactic science with Galactic plane, north-sky, southern-sky and all-sky surveys."
+classifiers = [
+  # How mature is your project?
+    "Development Status :: 1 - Planning",
+  # Indicate who your project is intended for
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Astronomy",
+    "Topic :: Scientific/Engineering :: Physics",
+  # Pick your license as you wish (see also "license" above)
+    "License :: OSI Approved :: MIT License",
+  # Specify the Python versions you support here.
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+]
+readme = "README.md"
+requires-python = ">=3.12"
+# dependancies = [
+#     "h5py",
+#     "matplotlib",
+#     "numpy",
+#     "toml",
+#     "astropy",
+#     "healpy",
+#     "reproject",
+#     "tqdm",
+# ]
+
+# [project.urls]
+# Homepage = "https://github.com/pypa/sampleproject"
+# Issues = "https://github.com/pypa/sampleproject/issues"

@@ -1,0 +1,13 @@
+sphinx
+sphinx_rtd_theme
+ghp-import
+
+h5py
+matplotlib
+numpy
+toml
+astropy
+astropy-healpix
+healpy
+reproject
+tqdm

@@ -1,0 +1,165 @@
+################################################################################
+# MAPEXT 2024 ed. map file
+################################################################################
+[Test142]
+    [Test142.Metadata]
+        name = 'Test'
+        freq = '1.42 GHz'
+    [Test142.I]
+        fname = 'mapext/tests/testdata/SRC1_1.42_CAL0.fits'
+        header = 0
+        unit = 'Jy/pix2'
+        resolution = '5.0 arcminute'
+[Test273]
+    [Test273.Metadata]
+        name = 'Test'
+        freq = '2.73 GHz'
+    [Test273.I]
+        fname = 'mapext/tests/testdata/SRC1_2.73_CAL0.fits'
+        header = 0
+        unit = 'Jy/pix2'
+        resolution = '5.0 arcminute'
+[Test5]
+    [Test5.Metadata]
+        name = 'Test'
+        freq = '5 GHz'
+    [Test5.I]
+        fname = 'mapext/tests/testdata/SRC1_5.0_CAL0.fits'
+        header = 0
+        unit = 'Jy/pix2'
+        resolution = '5.0 arcminute'
+[Test10]
+    [Test10.Metadata]
+        name = 'Test'
+        freq = '10 GHz'
+    [Test10.I]
+        fname = 'mapext/tests/testdata/SRC1_10.0_CAL0.fits'
+        header = 0
+        unit = 'Jy/pix2'
+        resolution = '5.0 arcminute'
+[Test27]
+    [Test27.Metadata]
+        name = 'Test'
+        freq = '27 GHz'
+    [Test27.I]
+        fname = 'mapext/tests/testdata/SRC1_27.0_CAL0.fits'
+        header = 0
+        unit = 'Jy/pix2'
+        resolution = '5.0 arcminute'
+[Test29]
+    [Test29.Metadata]
+        name = 'Test'
+        freq = '29 GHz'
+    [Test29.I]
+        fname = 'mapext/tests/testdata/SRC1_29.0_CAL0.fits'
+        header = 0
+        unit = 'Jy/pix2'
+        resolution = '5.0 arcminute'
+[Test31]
+    [Test31.Metadata]
+        name = 'Test'
+        freq = '31 GHz'
+    [Test31.I]
+        fname = 'mapext/tests/testdata/SRC1_31.0_CAL0.fits'
+        header = 0
+        unit = 'Jy/pix2'
+        resolution = '5.0 arcminute'
+[Test33]
+    [Test33.Metadata]
+        name = 'Test'
+        freq = '33 GHz'
+    [Test33.I]
+        fname = 'mapext/tests/testdata/SRC1_33.0_CAL0.fits'
+        header = 0
+        unit = 'Jy/pix2'
+        resolution = '5.0 arcminute'
+[Test90]
+    [Test90.Metadata]
+        name = 'Test'
+        freq = '90 GHz'
+    [Test90.I]
+        fname = 'mapext/tests/testdata/SRC1_90.0_CAL0.fits'
+        header = 0
+        unit = 'Jy/pix2'
+        resolution = '5.0 arcminute'
+[Test140]
+    [Test140.Metadata]
+        name = 'Test'
+        freq = '140 GHz'
+    [Test140.I]
+        fname = 'mapext/tests/testdata/SRC1_140.0_CAL0.fits'
+        header = 0
+        unit = 'Jy/pix2'
+        resolution = '5.0 arcminute'
+[Test242]
+    [Test242.Metadata]
+        name = 'Test'
+        freq = '242 GHz'
+    [Test242.I]
+        fname = 'mapext/tests/testdata/SRC1_242.0_CAL0.fits'
+        header = 0
+        unit = 'Jy/pix2'
+        resolution = '5.0 arcminute'
+[Test353]
+    [Test353.Metadata]
+        name = 'Test'
+        freq = '353 GHz'
+    [Test353.I]
+        fname = 'mapext/tests/testdata/SRC1_353.0_CAL0.fits'
+        header = 0
+        unit = 'Jy/pix2'
+        resolution = '5.0 arcminute'
+[Test545]
+    [Test545.Metadata]
+        name = 'Test'
+        freq = '545 GHz'
+    [Test545.I]
+        fname = 'mapext/tests/testdata/SRC1_545.0_CAL0.fits'
+        header = 0
+        unit = 'Jy/pix2'
+        resolution = '5.0 arcminute'
+[Test857]
+    [Test857.Metadata]
+        name = 'Test'
+        freq = '857 GHz'
+    [Test857.I]
+        fname = 'mapext/tests/testdata/SRC1_857.0_CAL0.fits'
+        header = 0
+        unit = 'Jy/pix2'
+        resolution = '5.0 arcminute'
+[Test1875]
+    [Test1875.Metadata]
+        name = 'Test'
+        freq = '1875 GHz'
+    [Test1875.I]
+        fname = 'mapext/tests/testdata/SRC1_1875.0_CAL0.fits'
+        header = 0
+        unit = 'Jy/pix2'
+        resolution = '5.0 arcminute'
+[Test2143]
+    [Test2143.Metadata]
+        name = 'Test'
+        freq = '2143 GHz'
+    [Test2143.I]
+        fname = 'mapext/tests/testdata/SRC1_2143.0_CAL0.fits'
+        header = 0
+        unit = 'Jy/pix2'
+        resolution = '5.0 arcminute'
+[Test3000]
+    [Test3000.Metadata]
+        name = 'Test'
+        freq = '3000 GHz'
+    [Test3000.I]
+        fname = 'mapext/tests/testdata/SRC1_3000.0_CAL0.fits'
+        header = 0
+        unit = 'Jy/pix2'
+        resolution = '5.0 arcminute'
+[Test3333]
+    [Test3333.Metadata]
+        name = 'Test'
+        freq = '3333 GHz'
+    [Test3333.I]
+        fname = 'mapext/tests/testdata/SRC1_3333.0_CAL0.fits'
+        header = 0
+        unit = 'Jy/pix2'
+        resolution = '5.0 arcminute'
