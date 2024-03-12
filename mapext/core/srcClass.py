@@ -3,7 +3,7 @@ from astropy.coordinates import SkyCoord
 
 __all__ = ['astroSrc']
 
-class astroSrc(baseSrc):
+class astroSrc():
     """Class to hold information pertaining to a specific astronomical source. this class is currently aimed at point sources, although will be expanded to be more flexible.
     
     :param name: Source name
