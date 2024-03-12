@@ -3,9 +3,11 @@ from astropy.coordinates import SkyCoord
 
 __all__ = ['astroSrc']
 
-class astroSrc():
+class astroSrc(baseSrc):
     """Class to hold information pertaining to a specific astronomical source. this class is currently aimed at point sources, although will be expanded to be more flexible.
     
+    :param name: Source name
+    :type name: string, optional
     :param coords: Center coordinates for the source.
     :type coords: list of astropy.coords.SkyCoord or list of floats
     :param frame: Coordinate frame if list of floats supplied for coord.
@@ -21,6 +23,7 @@ class astroSrc():
     def __init__(self, **kwargs):
         """Initialisation function.
         """
+        name = kwargs.get('coords', None)
         coords = kwargs.get('coords', None)
         frame = kwargs.get('frame', 'galactic')
         if isinstance(coords, SkyCoord) == False:

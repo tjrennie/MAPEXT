@@ -18,10 +18,12 @@ class FittableEmissionModel(FittableModel):
     n_inputs = 2
     n_outputs = 1
     
-    @staticmethod
-    def fit_deriv(*args):
-        return FittableEmissionModel.deriv(*args)
-        
+    def deriv(self, nu, beam):
+        args = []
+        for _ in self.param_names:
+            args.append(getattr(self,_).value)
+        return self.fit_deriv(nu, beam, *args)
+    
 
 # Synchrotron emission model
 class synchrotron_1comp(FittableEmissionModel):
@@ -65,7 +67,8 @@ class synchrotron_1comp(FittableEmissionModel):
         """
         return synch_S1 * (nu**synch_alp)
     
-    def deriv(self,nu, area, synch_S1, synch_alp):
+    @staticmethod
+    def fit_deriv(nu, area, synch_S1, synch_alp):
         """Evaluate the first derivitives of emission model with respect to input parameters.
 
         :param nu: Frequency in GHz
@@ -130,7 +133,8 @@ class freeFree_7000k(FittableEmissionModel):
         S = 2. * phys_const['k'] * area * np.power(np.multiply(nu,1e9),2)  / phys_const['c']**2 * T_ff * 1e26
         return S
     
-    def deriv(self,nu, area, ff_em):
+    @staticmethod
+    def fit_deriv(nu, area, ff_em):
         """Evaluate the first derivitives of emission model with respect to input parameters.
 
         :param nu: Frequency in GHz
@@ -202,7 +206,8 @@ class freeFree(FittableEmissionModel):
         S = 2. * phys_const['k'] * area * np.power(np.multiply(nu,1e9),2)  / phys_const['c']**2 * T_ff * 1e26
         return S
     
-    def deriv(self, nu, area, ff_em, ff_Te):
+    @staticmethod
+    def fit_deriv( nu, area, ff_em, ff_Te):
         """Evaluate the first derivitives of emission model with respect to input parameters.
 
         :param nu: Frequency in GHz
@@ -286,7 +291,8 @@ class ame_lognormal(FittableEmissionModel):
         nmaxlog = np.log(ame_peak)
         return ame_ampl*np.exp(-0.5 * ((nlog-nmaxlog)/ame_width)**2)
     
-    def deriv(self,nu, area, ame_ampl, ame_peak, ame_width):
+    @staticmethod
+    def fit_deriv(nu, area, ame_ampl, ame_peak, ame_width):
         """Evaluate the first derivitives of emission model with respect to input parameters.
 
         :param nu: Frequency in GHz
@@ -363,7 +369,8 @@ class thermalDust(FittableEmissionModel):
         modify = 10**tdust_tau * (nu9/1.2e12)**tdust_beta
         return 2 * phys_const['h'] * nu9**3/phys_const['c']**2 /planck * modify * area * 1e26
     
-    def deriv(self,nu, area, tdust_Td, tdust_tau, tdust_beta):
+    @staticmethod
+    def fit_deriv(nu, area, tdust_Td, tdust_tau, tdust_beta):
         """Evaluate the first derivitives of emission model with respect to input parameters.
 
         :param nu: Frequency in GHz

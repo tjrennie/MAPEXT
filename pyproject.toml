@@ -1,6 +1,6 @@
 [ project ]
 name = "mapext"
-version = "2024.0.17"
+version = "2024.0.18"
 authors = [
   { name="Thomas J. Rennie" },
 ]
