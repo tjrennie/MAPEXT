@@ -3,7 +3,7 @@ from astropy.modeling import FittableModel, Parameter
 
 __all__ = [
     'synchrotron_1comp',
-    'freeFree_7000k',
+    'freeFree','freeFree_7000k',
     'ame_lognormal',
     'thermalDust',
 ]
@@ -18,8 +18,9 @@ class FittableEmissionModel(FittableModel):
     n_inputs = 2
     n_outputs = 1
     
-    def fit_deriv(self, *args):
-        return self.deriv(self,*args)
+    @staticmethod
+    def fit_deriv(*args):
+        return self.deriv(self, *args)
 
 # Synchrotron emission model
 class synchrotron_1comp(FittableEmissionModel):
@@ -46,7 +47,7 @@ class synchrotron_1comp(FittableEmissionModel):
                           description='Synchrotron spectral index')
 
     @staticmethod
-    def evaluate(nu, area, synch_S1:float, synch_alp:float):
+    def evaluate(nu, area, synch_S1, synch_alp):
         """Evaluate the emission model.
 
         :param nu: Frequency in GHz
@@ -146,6 +147,91 @@ class freeFree_7000k(FittableEmissionModel):
         T_ff_derivative_ff_em = 8.235e-2 * a * np.power(T_e, -0.35) * np.power(nu, -2.1)
         d_ff_em = 2.0 * phys_const['k'] * area * np.power(np.multiply(nu, 1e9) / phys_const['c'], 2) * T_ff_derivative_ff_em * 1e26
         return [d_ff_em]
+
+# Free-free emission model (Draine 2011)
+class freeFree(FittableEmissionModel):
+    """Emission model for free-free UCHii emission 
+    
+    :param ff_em: Free-free emission measure
+    :type ff_em: float
+    :param ff_Te: Free-free electron temperature
+    :type ff_Te: float
+
+    :Formulism:
+        .. math::
+            g^\\mathrm{ff}_\\nu = \\ln\\left(\\exp\\left\\{5.90 - \\frac{\\sqrt{3}}{\\pi}\\ln\\left(\\left[ \\frac{\\nu}{\\mathrm{GHz}} \\right] \\left[\\frac{T_e}{10^4\\,\\mathrm{K}}\\right] ^\\frac{3}{2}\\right)\\right\\} + 2.71828\\right)
+        .. math::
+            \\tau^\\mathrm{ff}_\\nu = 5.468\\times 10^{-2} \\cdot T_e^{-\\frac{3}{2}} \\left[ \\frac{\\nu}{\\mathrm{GHz}} \\right]^{-2} \\left[\\frac{EM}{\\mathrm{pc\\,cm}^-6}\\right]  g^\\mathrm{ff}_\\nu
+        .. math::
+            T^\\mathrm{ff}_\\nu = T_e \\left(1-e^{-\\tau^\\mathrm{ff}_\\nu}\\right)
+        .. math::
+            S^\\mathrm{ff}_\\nu = \\frac{2k_B\\Omega\\nu^2}{c^2} T^\\mathrm{ff}_\\nu
+        For details see `Draine (2011)`_ .
+    
+    :note: Either all or none of input ``nu``, ``area`` and ``ff_em`` must be provided consistently with compatible units or as unitless numbers.
+    
+    .. _Draine (2011): https://ui.adsabs.harvard.edu/abs/2011piim.book.....D/abstract
+    """
+    ff_em = Parameter(default=100,
+                      min=0,
+                      description="Free-free emission measure")
+    ff_Te = Parameter(default=7000,
+                      min=0,
+                      description="Free-free electron temperature")
+
+    @staticmethod
+    def evaluate(nu, area, ff_em, ff_Te):
+        """Evaluate the emission model.
+
+        :param nu: Frequency in GHz
+        :type nu: float or numpy.ndarray
+        :param area: Beam area in steradians
+        :type name: float or numpy.ndarray
+        :param ff_em: Free-free emission measure
+        :type ff_em: float
+        :param ff_Te: Free-free electron temperature
+        :type ff_Te: float
+
+        :return: Evaluated function
+        :rtype: float or numpy.ndarray
+        """
+        g = np.log( np.exp( 5.90 - ( np.sqrt(3)/np.pi * np.log( nu * ((ff_Te/1e4)**1.5) ) ) ) + 2.71828 )
+        tau = 5.468e-2 * (ff_Te**-1.5) * (nu**-2) * ff_em * g
+        T_ff = ff_Te * (1 - np.exp(-1 * tau))
+        S = 2. * phys_const['k'] * area * np.power(np.multiply(nu,1e9),2)  / phys_const['c']**2 * T_ff * 1e26
+        return S
+    
+    def deriv(self, nu, area, ff_em, ff_Te):
+        """Evaluate the first derivitives of emission model with respect to input parameters.
+
+        :param nu: Frequency in GHz
+        :type nu: float or numpy.ndarray
+        :param area: Beam area in steradians
+        :type name: float or numpy.ndarray
+        :param ff_em: Free-free emission measure
+        :type ff_em: float
+        :param ff_Te: Free-free electron temperature
+        :type ff_Te: float
+
+        :return: Evaluated function
+        :rtype: float or numpy.ndarray
+        """
+        g = np.log( np.exp( 5.90 - ( np.sqrt(3)/np.pi * np.log( nu * ((ff_Te/1e4)**1.5) ) ) ) + 2.71828 )
+        tau = 5.468e-2 * (ff_Te**-1.5) * (nu**-2) * ff_em * g
+        T_ff = ff_Te * (1 - np.exp(-1 * tau))
+        S = 2. * phys_const['k'] * area * np.power(np.multiply(nu,1e9),2)  / phys_const['c']**2 * T_ff * 1e26
+        
+        dtau_dem = tau/ff_em
+        dTff_dem = T_ff*dtau_dem/(np.exp(tau) - 1)
+        dS_dem = S*dTff_dem/T_ff
+        
+        dg_dTe = 225693 / ((ff_Te * ((nu * (ff_Te**1.5))**(np.sqrt(3)/np.pi))) + (272908*ff_Te))
+        dtau_dTe = (tau*dg_dTe/g) - (tau*1.5/ff_Te)
+        dTff_dTe = (T_ff*dtau_dTe/(np.exp(tau) - 1)) + T_ff/ff_Te
+        dS_dTe = S*dTff_dTe/T_ff
+        
+        return [dS_dem, dS_dTe]
+
 
 # AME lognormal
 class ame_lognormal(FittableEmissionModel):

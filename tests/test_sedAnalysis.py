@@ -56,8 +56,6 @@ class Test_TestSEDAnalysis(unittest.TestCase):
         sigmas = np.sqrt(src.flux['Sv_e']**2 + S_std**2)
         deltas_scaled = deltas/sigmas
         
-        print(deltas_scaled)
-        
         self.assertTrue(np.all(np.abs(deltas_scaled)<1,axis=0))
         
 if __name__ == '__main__':

@@ -7,6 +7,7 @@ from astropy.wcs import WCS
 from astropy.wcs.utils import pixel_to_skycoord
 from astropy_healpix import HEALPix
 from reproject import reproject_interp,reproject_from_healpix
+from mapext import _version
 
 __all__ = ['astroMap', 'mapObj']
 
@@ -55,6 +56,7 @@ class astroMap():
         # INITIALISE MAP METADATA
         metadata = kwargs['Metadata']
         self.name = metadata.get('name', 'mapobject')
+        self.ID = metadata.get('id', self.name)
         self.freq = get_astropy_quantity(metadata.get('freq', None))
         if self.freq == None:
             raise ValueError('Key `freq` must be specified in Metadata kwarg dictionary.')
@@ -66,7 +68,7 @@ class astroMap():
             if (map_params is None) or (stokes_parameter not in load_maps):
                 setattr(self, stokes_parameter, None)
             else:
-                setattr(self, stokes_parameter, mapObj(name=f'{self.name}_{stokes_parameter}', freq=self.freq, **map_params))
+                setattr(self, stokes_parameter, mapObj(name=f'{self.ID}_{stokes_parameter}', freq=self.freq, **map_params))
         return
     
     def set_map_projection(self, **kwargs):
@@ -74,7 +76,8 @@ class astroMap():
         """
         for comp_stokes in self.stokes:
             comp_obj = getattr(self, comp_stokes)
-            comp_obj.reproject(**kwargs)
+            if comp_obj != None:
+                comp_obj.reproject(**kwargs)
         return
     
     def set_map_resolution(self, **kwargs):
@@ -82,7 +85,8 @@ class astroMap():
         """
         for comp_stokes in self.stokes:
             comp_obj = getattr(self, comp_stokes)
-            comp_obj.smooth_to(**kwargs)
+            if comp_obj != None:
+                comp_obj.smooth_to(**kwargs)
         return
     
     def set_map_units(self, **kwargs):
@@ -90,7 +94,8 @@ class astroMap():
         """
         for comp_stokes in self.stokes:
             comp_obj = getattr(self, comp_stokes)
-            comp_obj.smooth_to(**kwargs)
+            if comp_obj != None:
+                comp_obj.smooth_to(**kwargs)
         return
 
 
@@ -125,13 +130,12 @@ class mapObj():
         self.freq = get_astropy_quantity(freq)
         self.reso = get_astropy_quantity(kwargs.get('resolution', None))
         self.bwid = get_astropy_quantity(kwargs.get('beamwidth', str(self.reso)))
-        self.cal = kwargs.get('cal', 8)
         self.unit = get_astropy_unit(kwargs.get('unit', None))
         if self.unit in [u.K, u.mK, u.uK, u.nK]:
             self.temp = kwargs.get('temp', 'rj')
         else:
             self.temp = None
-        self.uncert_cal = kwargs.get('calibration_uncertainty', 8)
+        self.cal = kwargs.get('calibration', 8)
         self.tfield = kwargs.get('tfield', None)
         self.zaxis = kwargs.get('zaxis', None)
         self.fname = str(kwargs.get('fname', None))
@@ -183,10 +187,14 @@ class mapObj():
         """
         hdu = fits.open(self.fname)[self.hdrno]
         coordsys = None
-        if hdu.header["COORDSYS"].lower() in coorddict:
-            coordsys = coorddict[hdu.header["COORDSYS"].lower()]
+        if "COORDSYS" in hdu.header.keys():
+            if hdu.header["COORDSYS"].lower() in coorddict:
+                coordsys = coorddict[hdu.header["COORDSYS"].lower()]
+            else:
+                coordsys = hdu.header["COORDSYS"].lower()
+    
         else:
-            coordsys = hdu.header["COORDSYS"].lower()
+            coordsys = 'galactic'
         proj = HEALPix(nside=hdu.header['NSIDE'], order=hdu.header['ORDERING'], frame=coordsys)
         if self.tfield != None:
             data = np.array(hdu.data[self.tfield])
@@ -213,7 +221,7 @@ class mapObj():
             self.data, self.proj = new_map, wcs
         elif type(self.proj) == HEALPix:
             new_map, new_footprint = reproject_from_healpix((self.data, str(self.proj.frame.name).lower()), wcs, shape_out=shape_out, nested=True)
-            new_map[new_footprint==0] = np.nan
+            # new_map[new_footprint==0] = np.nan
             self.data, self.proj = new_map, wcs
         return
     
@@ -312,3 +320,40 @@ class mapObj():
         :rtype: astropy.unit.Quantity
         """
         return np.pi * (self.bwid/2.355)**2
+    
+    def meta_to_hdr(self):
+        unit = ''
+        if self.unit == u.K:
+            unit = f'{self.unit}_{self.temp.upper()}'
+        else:
+            unit = f'{self.unit}'
+        include = [
+            f'Resolution : {self.reso}',
+            f'Beamwidth : {self.bwid}',
+            f'Frequency : {self.freq}',
+            f'Units : {unit}',
+            f'calUncertainty : {self.uncert_cal}']
+        return include
+    
+    def save_out(self, filename=None, dir = '.'):
+        """Method to save out the current state of a map.
+        """
+        hdu = fits.PrimaryHDU(self.data, header=self.proj.to_header())
+        hdul = fits.HDUList(hdu)
+        
+        hdul[0].header['COMMENT'] = f'Processed with MAPEXT {_version.__version__}'
+        hdul[0].header['COMMENT'] = '-'*80
+        for _ in self.meta_to_hdr():
+            hdul[0].header['COMMENT'] = _
+            
+        if filename is not None:
+            outfilename = filename
+        else:
+            outfilename = '{}-{}.fits'.format(self.name, self.reso)
+        try:
+            hdul.writeto(f'{dir}/{outfilename}', overwrite=True)
+        except:
+            print('File already exists - not overwritten')
+        del hdul
+        return
+        
