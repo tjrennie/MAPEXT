@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>mapext.core package &mdash; MAPEXT 2024.0.15 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=56105f59"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="mapext.emission package" href="mapext.emission.html" />
+    <link rel="prev" title="mapext package" href="mapext.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            MAPEXT
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">mapext</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="mapext.html">mapext package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="mapext.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">mapext.core package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mapext.emission.html">mapext.emission package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mapext.photometry.html">mapext.photometry package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mapext.html#module-mapext">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MAPEXT</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">mapext</a></li>
+          <li class="breadcrumb-item"><a href="mapext.html">mapext package</a></li>
+      <li class="breadcrumb-item active">mapext.core package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/mapext.core.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="mapext-core-package">
+<h1>mapext.core package<a class="headerlink" href="#mapext-core-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-mapext.core.mapClass">
+<span id="mapext-core-mapclass-module"></span><h2>mapext.core.mapClass module<a class="headerlink" href="#module-mapext.core.mapClass" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="mapext.core.mapClass.astroMap">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mapext.core.mapClass.</span></span><span class="sig-name descname"><span class="pre">astroMap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">load_maps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'IQU'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mapext/core/mapClass.html#astroMap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mapext.core.mapClass.astroMap" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class to hold one or many astronomical maps alongside metadata describing them. Each map held inside an <cite>astroMap</cite> object is contained in a <cite>mapObj</cite> object inside the <cite>astroMap</cite> instance.</p>
+<p>Metadata is split into overarching/common metadata (such as origin, reference, frequency) which is held in the <cite>astroMap</cite>, and map-specific metadata (such as Stokes component, projection and resolution) which is held in the <cite>mapObj</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>load_maps</strong> (<em>str</em><em>, </em><em>kwarg</em><em>, </em><em>optional</em>) – Stokes parameters of maps to preload from supplied map details. Defaults to ‘IQU’.</p></li>
+<li><p><strong>Metadata</strong> (<em>dict</em><em>, </em><em>kwarg</em>) – Dictionary containing general metadata about the maps to be initialised. Must contain <cite>name</cite> and <cite>freq</cite> keys.</p></li>
+<li><p><strong>I</strong> (<em>dict</em><em>, </em><em>kwarg</em><em>, </em><em>optional</em>) – Dictionary containing metadata for the Stokes I map to be initialised. Must contain <cite>fname</cite>, <cite>unit</cite> and <cite>resolution</cite> keys, can contain <cite>header</cite>, <cite>tfield</cite> and <cite>temp</cite> keys. All keys are passed onto a <cite>mapObj</cite> instance without interpretation.</p></li>
+<li><p><strong>Q</strong> (<em>dict</em><em>, </em><em>kwarg</em><em>, </em><em>optional</em>) – Dictionary containing metadata for the Stokes Q map to be initialised. Must contain <cite>fname</cite>, <cite>unit</cite> and <cite>resolution</cite> keys, can contain <cite>header</cite>, <cite>tfield</cite> and <cite>temp</cite> keys. All keys are passed onto a <cite>mapObj</cite> instance without interpretation.</p></li>
+<li><p><strong>U</strong> (<em>dict</em><em>, </em><em>kwarg</em><em>, </em><em>optional</em>) – Dictionary containing metadata for the Stokes U map to be initialised. Must contain <cite>fname</cite>, <cite>unit</cite> and <cite>resolution</cite> keys, can contain <cite>header</cite>, <cite>tfield</cite> and <cite>temp</cite> keys. All keys are passed onto a <cite>mapObj</cite> instance without interpretation.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – Key <cite>freq</cite> must be specified in Metadata kwarg dictionary.</p>
+</dd>
+<dt class="field-odd">Warnings<span class="colon">:</span></dt>
+<dd class="field-odd"><p>All functions are defined for cartesian map projections, but may not be for native HEALPix map operation. Please check that your maps are suitable to be processed in cartesian before reprojecting for compatibility.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="mapext.core.mapClass.astroMap.set_map_projection">
+<span class="sig-name descname"><span class="pre">set_map_projection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mapext/core/mapClass.html#astroMap.set_map_projection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mapext.core.mapClass.astroMap.set_map_projection" title="Link to this definition"></a></dt>
+<dd><p>Method to set map projection for all available maps in this object. For details see <a class="reference internal" href="#mapext.core.mapClass.mapObj.reproject" title="mapext.core.mapClass.mapObj.reproject"><code class="xref py py-func docutils literal notranslate"><span class="pre">mapext.core.mapClass.mapObj.reproject()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mapext.core.mapClass.astroMap.set_map_resolution">
+<span class="sig-name descname"><span class="pre">set_map_resolution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mapext/core/mapClass.html#astroMap.set_map_resolution"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mapext.core.mapClass.astroMap.set_map_resolution" title="Link to this definition"></a></dt>
+<dd><p>Method to set map resolution for all available maps in this object. For details see <a class="reference internal" href="#mapext.core.mapClass.mapObj.smooth_to" title="mapext.core.mapClass.mapObj.smooth_to"><code class="xref py py-func docutils literal notranslate"><span class="pre">mapext.core.mapClass.mapObj.smooth_to()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mapext.core.mapClass.astroMap.set_map_units">
+<span class="sig-name descname"><span class="pre">set_map_units</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mapext/core/mapClass.html#astroMap.set_map_units"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mapext.core.mapClass.astroMap.set_map_units" title="Link to this definition"></a></dt>
+<dd><p>Method to set map units for all available maps in this object. For details see <a class="reference internal" href="#mapext.core.mapClass.mapObj.convert_units" title="mapext.core.mapClass.mapObj.convert_units"><code class="xref py py-func docutils literal notranslate"><span class="pre">mapext.core.mapClass.mapObj.convert_units()</span></code></a>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mapext.core.mapClass.mapObj">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mapext.core.mapClass.</span></span><span class="sig-name descname"><span class="pre">mapObj</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">freq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mapext/core/mapClass.html#mapObj"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mapext.core.mapClass.mapObj" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class to hold a single astronomical map as part of an astroMap object. Holds map-specific metadata that can change between Stokes parameter maps from teh same source.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>string</em><em>, </em><em>kwarg</em>) – Map name. If initialised as part of <cite>astroMap</cite> object, will be set to <cite>{astromapName}_{stokesParameter}</cite>.</p></li>
+<li><p><strong>freq</strong> (<em>string</em><em> or </em><em>astropy.units.Quantity</em><em>, </em><em>kwarg</em>) – Map central frequency.</p></li>
+<li><p><strong>fname</strong> (<em>str</em><em>, </em><em>kwarg</em>) – Filename for data to be read from.</p></li>
+<li><p><strong>resolution</strong> (<em>str</em><em>, </em><em>kwarg</em>) – Resolution of the map as read in.</p></li>
+<li><p><strong>beamwidth</strong> (<em>string</em><em> or </em><em>astropy.units.Quantity</em><em>, </em><em>kwarg</em><em>, </em><em>optional</em>) – Beamwidth of original telescope beam before any postprocessing or smoothing. Defaults to resolution value.</p></li>
+<li><p><strong>cal</strong> (<em>float</em><em>, </em><em>kwarg</em><em>, </em><em>optional</em>) – Calibration uncertainty as percentage (e.g. 5% should be inputted at 5). Defaults to 8%.</p></li>
+<li><p><strong>unit</strong> (<em>string</em><em> or </em><em>astropy.units.Unit</em><em>, </em><em>kwarg</em><em>, </em><em>optional</em>) – Units of teh input map. If units are Kelvin (K), use temp keyword to specify temperature type.</p></li>
+<li><p><strong>temp</strong> (<em>str</em><em>, </em><em>kwarg</em><em>, </em><em>optional</em>) – Type of temperature specified in units: <cite>cmb</cite> for CMB temperature (as defined by Planck) or <cite>rj</cite> for Rayleigh-Jeans temperature.</p></li>
+<li><p><strong>zaxis</strong> (<em>int</em><em>, </em><em>kwarg</em><em>, </em><em>optional</em>) – index of map to read in if specified in an image cube 9greater than 2 dimensions).</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="mapext.core.mapClass.mapObj.convert_units">
+<span class="sig-name descname"><span class="pre">convert_units</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">Unit('Jy</span> <span class="pre">/</span> <span class="pre">pix2')</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mapext/core/mapClass.html#mapObj.convert_units"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mapext.core.mapClass.mapObj.convert_units" title="Link to this definition"></a></dt>
+<dd><p>Method to convert map to to desired units based on arguments supplied</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>new_units</strong> – (_type_, optional): _description_. Defaults to u.Jy/(u.pixel**2).</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – Unit not recognised as flux density units</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mapext.core.mapClass.mapObj.determine_map_type">
+<span class="sig-name descname"><span class="pre">determine_map_type</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/mapext/core/mapClass.html#mapObj.determine_map_type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mapext.core.mapClass.mapObj.determine_map_type" title="Link to this definition"></a></dt>
+<dd><p>Method to determine if a fits file is a HEALPix file or a WCS (cartesian) file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Pixelisation scheme, <cite>wcs</cite> if a cartesian WCS-defined object or <cite>healpix</cite> if HEALPix pixelisation.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mapext.core.mapClass.mapObj.get_beam_area">
+<span class="sig-name descname"><span class="pre">get_beam_area</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/mapext/core/mapClass.html#mapObj.get_beam_area"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mapext.core.mapClass.mapObj.get_beam_area" title="Link to this definition"></a></dt>
+<dd><p>Method to return beam area</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Beam area.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>astropy.unit.Quantity</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mapext.core.mapClass.mapObj.get_pixel_coords">
+<span class="sig-name descname"><span class="pre">get_pixel_coords</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/mapext/core/mapClass.html#mapObj.get_pixel_coords"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mapext.core.mapClass.mapObj.get_pixel_coords" title="Link to this definition"></a></dt>
+<dd><p>Method to return an array of center coordinates for each pixel</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Array of SkyCoord objects representing sky coordinates of the center of each map pixel.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray of astropy.coords.SkyCoord</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mapext.core.mapClass.mapObj.meta_to_hdr">
+<span class="sig-name descname"><span class="pre">meta_to_hdr</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/mapext/core/mapClass.html#mapObj.meta_to_hdr"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mapext.core.mapClass.mapObj.meta_to_hdr" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mapext.core.mapClass.mapObj.read_hpx_map">
+<span class="sig-name descname"><span class="pre">read_hpx_map</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/mapext/core/mapClass.html#mapObj.read_hpx_map"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mapext.core.mapClass.mapObj.read_hpx_map" title="Link to this definition"></a></dt>
+<dd><p>Method to read a fits file containing a map with HEALPix projection to memory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Map data, Map projection.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.array, astropy_healpix.HEALPix</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mapext.core.mapClass.mapObj.read_wcs_map">
+<span class="sig-name descname"><span class="pre">read_wcs_map</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/mapext/core/mapClass.html#mapObj.read_wcs_map"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mapext.core.mapClass.mapObj.read_wcs_map" title="Link to this definition"></a></dt>
+<dd><p>Method to read a fits file containing a map with WCS (cartesian) projection to memory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Map data, Map projection.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.array, astropy.wcs.WCSObject</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mapext.core.mapClass.mapObj.reproject">
+<span class="sig-name descname"><span class="pre">reproject</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wcs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape_out</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'nearest_neighbour'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mapext/core/mapClass.html#mapObj.reproject"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mapext.core.mapClass.mapObj.reproject" title="Link to this definition"></a></dt>
+<dd><p>Method to reproject current map data into another projection specified by the keyword arguments supplied</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wcs</strong> (<em>astropy.wcs.WCSobject</em><em>, </em><em>optional</em>) – WCS object describing final projection. Defaults to None.</p></li>
+<li><p><strong>shape_out</strong> (<em>numpy.ndarray</em><em>, </em><em>optional</em><em>)</em>) – Desired final map shape supplied as a length-2 list. Defaults to None.</p></li>
+<li><p><strong>order</strong> (<em>str</em><em>, </em><em>optional</em>) – Interpolation scheme to use. Defaults to ‘nearest_neighbour’.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Todo<span class="colon">:</span></dt>
+<dd class="field-even"><p>Add support for HEALPix -&gt; HEALPix transformations</p>
+</dd>
+<dt class="field-odd">Todo<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Add support for WCS -&gt; HEALPix transformations</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mapext.core.mapClass.mapObj.save_out">
+<span class="sig-name descname"><span class="pre">save_out</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'.'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mapext/core/mapClass.html#mapObj.save_out"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mapext.core.mapClass.mapObj.save_out" title="Link to this definition"></a></dt>
+<dd><p>Method to save out the current state of a map.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mapext.core.mapClass.mapObj.smooth_to">
+<span class="sig-name descname"><span class="pre">smooth_to</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reso</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mapext/core/mapClass.html#mapObj.smooth_to"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mapext.core.mapClass.mapObj.smooth_to" title="Link to this definition"></a></dt>
+<dd><p>Method to smooth map to desired resolution based on arguments supplied</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reso</strong> (<em>astropy.units.Quantity</em>) – Resolution of the final map. Need not be supplied if fwhm given, but priorotised if both given. Defaults to None.</p></li>
+<li><p><strong>reso</strong> – Resolution of the final map. Need not be supplied if fwhm given, but priorotised if both given. Defaults to None.</p></li>
+<li><p><strong>fwhm</strong> (<em>astropy.units.Quantity</em>) – Full-width half maximum of a point source is the (desired) final map.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ValueError</strong> – Map resolution lower than target resolution ({reso} &gt; {self.reso}). Please re-evaluate use of this map in this run.</p></li>
+<li><p><strong>ValueError</strong> – Operation not yet supported.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Todo<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Add support for smoothing HEALPix maps</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-mapext.core.output">
+<span id="mapext-core-output-module"></span><h2>mapext.core.output module<a class="headerlink" href="#module-mapext.core.output" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="mapext.core.output.initialise_output">
+<span class="sig-prename descclassname"><span class="pre">mapext.core.output.</span></span><span class="sig-name descname"><span class="pre">initialise_output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mapext/core/output.html#initialise_output"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mapext.core.output.initialise_output" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mapext.core.output.mapext_runfile">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mapext.core.output.</span></span><span class="sig-name descname"><span class="pre">mapext_runfile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">naming</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mapext/core/output.html#mapext_runfile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mapext.core.output.mapext_runfile" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class to manage exportinga and importing astroMap and astroSrc objects to and from one (or many) hdf5 file(s).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<em>string</em>) – Path for runfile to be saved to. If None, reverts to setting given in mapext.settings. Defaults to None.</p></li>
+<li><p><strong>naming</strong> (<em>string</em>) – Naming scheme for runfile and ancillary files. If None, reverts to setting given in mapext.settings. Defaults to None.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="mapext.core.output.mapext_runfile.get_fname">
+<span class="sig-name descname"><span class="pre">get_fname</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ftype</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mapext/core/output.html#mapext_runfile.get_fname"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mapext.core.output.mapext_runfile.get_fname" title="Link to this definition"></a></dt>
+<dd><p>Method to retrieve names for runfile and ancillary data files</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ftype</strong> (<em>string</em>) – Filetype to be named</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – Do not recognise naming scheme</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Filename</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>string</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-mapext.core.srcClass">
+<span id="mapext-core-srcclass-module"></span><h2>mapext.core.srcClass module<a class="headerlink" href="#module-mapext.core.srcClass" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="mapext.core.srcClass.astroSrc">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mapext.core.srcClass.</span></span><span class="sig-name descname"><span class="pre">astroSrc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mapext/core/srcClass.html#astroSrc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mapext.core.srcClass.astroSrc" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class to hold information pertaining to a specific astronomical source. this class is currently aimed at point sources, although will be expanded to be more flexible.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>string</em><em>, </em><em>optional</em>) – Source name</p></li>
+<li><p><strong>coords</strong> (<em>list</em><em> of </em><em>astropy.coords.SkyCoord</em><em> or </em><em>list</em><em> of </em><em>floats</em>) – Center coordinates for the source.</p></li>
+<li><p><strong>frame</strong> (<em>string</em><em>, </em><em>optional</em>) – Coordinate frame if list of floats supplied for coord.</p></li>
+<li><p><strong>flux</strong> (<em>list</em><em> of </em><em>tuples</em>) – Array of flux values (represented by tuples). Each tuple should be of the form (&lt;name, str&gt;, &lt;stokes_parameter, str&gt;, &lt;frequency, Hz&gt;, &lt;resolution, arcmin&gt;, &lt;flux, Jy&gt;, &lt;std_flux, Jy&gt;, &lt;origin/reference, str&gt;).</p></li>
+<li><p><strong>model</strong> (<em>list</em><em> of </em><em>tuples</em>) – Array of source models (represented by tuples). Each tuple should be of the form (&lt;name, str&gt;, &lt;stokes_parameter, str&gt;, &lt;frequency, Hz&gt;, &lt;resolution, arcmin&gt;, &lt;model, obj&gt;, &lt;std_model, obj&gt;, &lt;origin/reference, str&gt;).</p></li>
+<li><p><strong>flux_model</strong> (<em>list</em><em> of </em><em>tuples</em>) – Array of source models (represented by tuples). Each tuple should be of the form (&lt;name, str&gt;, &lt;model, obj&gt;, &lt;origin/reference, str&gt;).</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="mapext.core.srcClass.astroSrc.append_flux_measure">
+<span class="sig-name descname"><span class="pre">append_flux_measure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fluxentry</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mapext/core/srcClass.html#astroSrc.append_flux_measure"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mapext.core.srcClass.astroSrc.append_flux_measure" title="Link to this definition"></a></dt>
+<dd><p>Function to append new flux measure entry to table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>fluxentry</strong> (<em>list</em><em> of </em><em>tuples</em>) – Array of flux values (represented by tuples). Each tuple should be of the form (&lt;name, str&gt;, &lt;stokes_parameter, str&gt;, &lt;frequency, Hz&gt;, &lt;resolution, arcmin&gt;, &lt;flux, Jy&gt;, &lt;std_flux, Jy&gt;, &lt;origin/reference, str&gt;).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mapext.core.srcClass.astroSrc.append_flux_model">
+<span class="sig-name descname"><span class="pre">append_flux_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fluxmodelentry</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mapext/core/srcClass.html#astroSrc.append_flux_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mapext.core.srcClass.astroSrc.append_flux_model" title="Link to this definition"></a></dt>
+<dd><p>Function to append new flux model to table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>flux_model</strong> (<em>list</em><em> of </em><em>tuples</em>) – Array of source models (represented by tuples). Each tuple should be of the form (&lt;name, str&gt;, &lt;model, obj&gt;, &lt;origin/reference, str&gt;).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mapext.core.srcClass.astroSrc.append_model">
+<span class="sig-name descname"><span class="pre">append_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">modelentry</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mapext/core/srcClass.html#astroSrc.append_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mapext.core.srcClass.astroSrc.append_model" title="Link to this definition"></a></dt>
+<dd><p>Function to append new source model to table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>modelentry</strong> (<em>list</em><em> of </em><em>tuples</em>) – Array of source models (represented by tuples). Each tuple should be of the form (&lt;name, str&gt;, &lt;stokes_parameter, str&gt;, &lt;frequency, Hz&gt;, &lt;resolution, arcmin&gt;, &lt;model, obj&gt;, &lt;std_model, obj&gt;, &lt;origin/reference, str&gt;).</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-mapext.core">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-mapext.core" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="mapext.html" class="btn btn-neutral float-left" title="mapext package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="mapext.emission.html" class="btn btn-neutral float-right" title="mapext.emission package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, tjrennie.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

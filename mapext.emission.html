@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>mapext.emission package &mdash; MAPEXT 2024.0.15 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=56105f59"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="mapext.photometry package" href="mapext.photometry.html" />
+    <link rel="prev" title="mapext.core package" href="mapext.core.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            MAPEXT
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">mapext</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="mapext.html">mapext package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="mapext.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="mapext.core.html">mapext.core package</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">mapext.emission package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mapext.photometry.html">mapext.photometry package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mapext.html#module-mapext">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MAPEXT</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">mapext</a></li>
+          <li class="breadcrumb-item"><a href="mapext.html">mapext package</a></li>
+      <li class="breadcrumb-item active">mapext.emission package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/mapext.emission.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="mapext-emission-package">
+<h1>mapext.emission package<a class="headerlink" href="#mapext-emission-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-mapext.emission.emission_models">
+<span id="mapext-emission-emission-models-module"></span><h2>mapext.emission.emission_models module<a class="headerlink" href="#module-mapext.emission.emission_models" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="mapext.emission.emission_models.ame_lognormal">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mapext.emission.emission_models.</span></span><span class="sig-name descname"><span class="pre">ame_lognormal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ame_ampl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ame_peak</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">27</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ame_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mapext/emission/emission_models.html#ame_lognormal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mapext.emission.emission_models.ame_lognormal" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">FittableEmissionModel</span></code></p>
+<p>Emission model for an AME lognormal source.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ame_ampl</strong> (<em>float</em>) – AME peak flux density</p></li>
+<li><p><strong>ame_peak</strong> (<em>float</em>) – AME peak frequency</p></li>
+<li><p><strong>ame_width</strong> (<em>float</em>) – AME lognormal width</p></li>
+</ul>
+</dd>
+<dt class="field-even">Formulaism<span class="colon">:</span></dt>
+<dd class="field-even"><div class="math notranslate nohighlight">
+\[S^{\mathrm{AME}}_\nu = A_\mathrm{AME} \cdot \exp\left\{ -\frac{1}{2}\left( \frac{\ln(\nu/\nu_\mathrm{AME})}{W_\mathrm{AME}} \right)^2  \right\}\]</div>
+<p>For details see <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2014ApJ...781..113S/abstract">Stevenson (2014)</a> .</p>
+</dd>
+<dt class="field-odd">Notes<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Either all or none of input <code class="docutils literal notranslate"><span class="pre">nu</span></code>, <code class="docutils literal notranslate"><span class="pre">area</span></code>, <code class="docutils literal notranslate"><span class="pre">ame_ampl</span></code>, <code class="docutils literal notranslate"><span class="pre">ame_peak</span></code> and <code class="docutils literal notranslate"><span class="pre">ame_width</span></code> must be provided consistently with compatible units or as unitless numbers.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mapext.emission.emission_models.ame_lognormal.ame_ampl">
+<span class="sig-name descname"><span class="pre">ame_ampl</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Parameter('ame_ampl',</span> <span class="pre">value=10.0,</span> <span class="pre">bounds=(0,</span> <span class="pre">None))</span></em><a class="headerlink" href="#mapext.emission.emission_models.ame_lognormal.ame_ampl" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mapext.emission.emission_models.ame_lognormal.ame_peak">
+<span class="sig-name descname"><span class="pre">ame_peak</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Parameter('ame_peak',</span> <span class="pre">value=27.0,</span> <span class="pre">bounds=(5,</span> <span class="pre">60))</span></em><a class="headerlink" href="#mapext.emission.emission_models.ame_lognormal.ame_peak" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mapext.emission.emission_models.ame_lognormal.ame_width">
+<span class="sig-name descname"><span class="pre">ame_width</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Parameter('ame_width',</span> <span class="pre">value=0.5,</span> <span class="pre">bounds=(0,</span> <span class="pre">1))</span></em><a class="headerlink" href="#mapext.emission.emission_models.ame_lognormal.ame_width" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mapext.emission.emission_models.ame_lognormal.evaluate">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nu</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">area</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ame_ampl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ame_peak</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ame_width</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mapext/emission/emission_models.html#ame_lognormal.evaluate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mapext.emission.emission_models.ame_lognormal.evaluate" title="Link to this definition"></a></dt>
+<dd><p>Evaluate the emission model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nu</strong> (<em>float</em><em> or </em><em>numpy.ndarray</em>) – Frequency in GHz</p></li>
+<li><p><strong>area</strong> – Beam area in steradians</p></li>
+<li><p><strong>ame_ampl</strong> (<em>float</em>) – AME peak flux density</p></li>
+<li><p><strong>ame_peak</strong> (<em>float</em>) – AME peak frequency</p></li>
+<li><p><strong>ame_width</strong> (<em>float</em>) – AME lognormal width</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Evaluated function</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mapext.emission.emission_models.ame_lognormal.fit_deriv">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fit_deriv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nu</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">area</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ame_ampl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ame_peak</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ame_width</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mapext/emission/emission_models.html#ame_lognormal.fit_deriv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mapext.emission.emission_models.ame_lognormal.fit_deriv" title="Link to this definition"></a></dt>
+<dd><p>Evaluate the first derivitives of emission model with respect to input parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nu</strong> (<em>float</em><em> or </em><em>numpy.ndarray</em>) – Frequency in GHz</p></li>
+<li><p><strong>area</strong> – Beam area in steradians</p></li>
+<li><p><strong>ame_ampl</strong> (<em>float</em>) – AME peak flux density</p></li>
+<li><p><strong>ame_peak</strong> (<em>float</em>) – AME peak frequency</p></li>
+<li><p><strong>ame_width</strong> (<em>float</em>) – AME lognormal width</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>First derivitives with repect to input parameters in order.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mapext.emission.emission_models.ame_lognormal.param_names">
+<span class="sig-name descname"><span class="pre">param_names</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('ame_ampl',</span> <span class="pre">'ame_peak',</span> <span class="pre">'ame_width')</span></em><a class="headerlink" href="#mapext.emission.emission_models.ame_lognormal.param_names" title="Link to this definition"></a></dt>
+<dd><p>Names of the parameters that describe models of this type.</p>
+<p>The parameters in this tuple are in the same order they should be passed in
+when initializing a model of a specific type.  Some types of models, such
+as polynomial models, have a different number of parameters depending on
+some other property of the model, such as the degree.</p>
+<p>When defining a custom model class the value of this attribute is
+automatically set by the <cite>~astropy.modeling.Parameter</cite> attributes defined
+in the class body.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mapext.emission.emission_models.freeFree">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mapext.emission.emission_models.</span></span><span class="sig-name descname"><span class="pre">freeFree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ff_em</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ff_Te</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">7000</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mapext/emission/emission_models.html#freeFree"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mapext.emission.emission_models.freeFree" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">FittableEmissionModel</span></code></p>
+<p>Emission model for free-free UCHii emission</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ff_em</strong> (<em>float</em>) – Free-free emission measure</p></li>
+<li><p><strong>ff_Te</strong> (<em>float</em>) – Free-free electron temperature</p></li>
+</ul>
+</dd>
+<dt class="field-even">Formulism<span class="colon">:</span></dt>
+<dd class="field-even"><div class="math notranslate nohighlight">
+\[g^\mathrm{ff}_\nu = \ln\left(\exp\left\{5.90 - \frac{\sqrt{3}}{\pi}\ln\left(\left[ \frac{\nu}{\mathrm{GHz}} \right] \left[\frac{T_e}{10^4\,\mathrm{K}}\right] ^\frac{3}{2}\right)\right\} + 2.71828\right)\]</div>
+<div class="math notranslate nohighlight">
+\[\tau^\mathrm{ff}_\nu = 5.468\times 10^{-2} \cdot T_e^{-\frac{3}{2}} \left[ \frac{\nu}{\mathrm{GHz}} \right]^{-2} \left[\frac{EM}{\mathrm{pc\,cm}^-6}\right]  g^\mathrm{ff}_\nu\]</div>
+<div class="math notranslate nohighlight">
+\[T^\mathrm{ff}_\nu = T_e \left(1-e^{-\tau^\mathrm{ff}_\nu}\right)\]</div>
+<div class="math notranslate nohighlight">
+\[S^\mathrm{ff}_\nu = \frac{2k_B\Omega\nu^2}{c^2} T^\mathrm{ff}_\nu\]</div>
+<p>For details see <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2011piim.book.....D/abstract">Draine (2011)</a> .</p>
+</dd>
+<dt class="field-odd">Note<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Either all or none of input <code class="docutils literal notranslate"><span class="pre">nu</span></code>, <code class="docutils literal notranslate"><span class="pre">area</span></code> and <code class="docutils literal notranslate"><span class="pre">ff_em</span></code> must be provided consistently with compatible units or as unitless numbers.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="mapext.emission.emission_models.freeFree.evaluate">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nu</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">area</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ff_em</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ff_Te</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mapext/emission/emission_models.html#freeFree.evaluate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mapext.emission.emission_models.freeFree.evaluate" title="Link to this definition"></a></dt>
+<dd><p>Evaluate the emission model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nu</strong> (<em>float</em><em> or </em><em>numpy.ndarray</em>) – Frequency in GHz</p></li>
+<li><p><strong>area</strong> – Beam area in steradians</p></li>
+<li><p><strong>ff_em</strong> (<em>float</em>) – Free-free emission measure</p></li>
+<li><p><strong>ff_Te</strong> (<em>float</em>) – Free-free electron temperature</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Evaluated function</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mapext.emission.emission_models.freeFree.ff_Te">
+<span class="sig-name descname"><span class="pre">ff_Te</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Parameter('ff_Te',</span> <span class="pre">value=7000.0,</span> <span class="pre">bounds=(0,</span> <span class="pre">None))</span></em><a class="headerlink" href="#mapext.emission.emission_models.freeFree.ff_Te" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mapext.emission.emission_models.freeFree.ff_em">
+<span class="sig-name descname"><span class="pre">ff_em</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Parameter('ff_em',</span> <span class="pre">value=100.0,</span> <span class="pre">bounds=(0,</span> <span class="pre">None))</span></em><a class="headerlink" href="#mapext.emission.emission_models.freeFree.ff_em" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mapext.emission.emission_models.freeFree.fit_deriv">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fit_deriv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nu</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">area</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ff_em</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ff_Te</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mapext/emission/emission_models.html#freeFree.fit_deriv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mapext.emission.emission_models.freeFree.fit_deriv" title="Link to this definition"></a></dt>
+<dd><p>Evaluate the first derivitives of emission model with respect to input parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nu</strong> (<em>float</em><em> or </em><em>numpy.ndarray</em>) – Frequency in GHz</p></li>
+<li><p><strong>area</strong> – Beam area in steradians</p></li>
+<li><p><strong>ff_em</strong> (<em>float</em>) – Free-free emission measure</p></li>
+<li><p><strong>ff_Te</strong> (<em>float</em>) – Free-free electron temperature</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Evaluated function</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mapext.emission.emission_models.freeFree.param_names">
+<span class="sig-name descname"><span class="pre">param_names</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('ff_em',</span> <span class="pre">'ff_Te')</span></em><a class="headerlink" href="#mapext.emission.emission_models.freeFree.param_names" title="Link to this definition"></a></dt>
+<dd><p>Names of the parameters that describe models of this type.</p>
+<p>The parameters in this tuple are in the same order they should be passed in
+when initializing a model of a specific type.  Some types of models, such
+as polynomial models, have a different number of parameters depending on
+some other property of the model, such as the degree.</p>
+<p>When defining a custom model class the value of this attribute is
+automatically set by the <cite>~astropy.modeling.Parameter</cite> attributes defined
+in the class body.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mapext.emission.emission_models.freeFree_7000k">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mapext.emission.emission_models.</span></span><span class="sig-name descname"><span class="pre">freeFree_7000k</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ff_em</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mapext/emission/emission_models.html#freeFree_7000k"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mapext.emission.emission_models.freeFree_7000k" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">FittableEmissionModel</span></code></p>
+<p>Emission model for free-free emission with an electron temperature of 7000K.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ff_em</strong> (<em>float</em>) – Free-free emission measure</p>
+</dd>
+<dt class="field-even">Formulism<span class="colon">:</span></dt>
+<dd class="field-even"><div class="math notranslate nohighlight">
+\[\tau^\mathrm{ff}_\nu = 5.468\times 10^{-2} \cdot T_e^{-\frac{3}{2}} \left[ \frac{\nu}{\mathrm{GHz}} \right]^{-2} \left[\frac{EM}{\mathrm{pc\,cm}^-6}\right]  g^\mathrm{ff}_\nu\]</div>
+<div class="math notranslate nohighlight">
+\[g^\mathrm{ff}_\nu = \ln\left(\exp\left\{5.90 - \frac{\sqrt{3}}{\pi}\ln\left(\left[ \frac{\nu}{\mathrm{GHz}} \right] \left[\frac{T_e}{10^4\,\mathrm{K}}\right] ^\frac{3}{2}\right)\right\} + 2.71828\right)\]</div>
+<div class="math notranslate nohighlight">
+\[T^\mathrm{ff}_\nu = T_e \left(1-e^{-\tau^\mathrm{ff}_\nu}\right)\]</div>
+<div class="math notranslate nohighlight">
+\[S^\mathrm{ff}_\nu = \frac{2k_B\Omega\nu^2}{c^2} T^\mathrm{ff}_\nu\]</div>
+<p>For details see <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2011piim.book.....D/abstract">Draine (2011)</a> .</p>
+</dd>
+<dt class="field-odd">Note<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Either all or none of input <code class="docutils literal notranslate"><span class="pre">nu</span></code>, <code class="docutils literal notranslate"><span class="pre">area</span></code> and <code class="docutils literal notranslate"><span class="pre">ff_em</span></code> must be provided consistently with compatible units or as unitless numbers.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="mapext.emission.emission_models.freeFree_7000k.evaluate">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nu</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">area</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ff_em</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mapext/emission/emission_models.html#freeFree_7000k.evaluate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mapext.emission.emission_models.freeFree_7000k.evaluate" title="Link to this definition"></a></dt>
+<dd><p>Evaluate the emission model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nu</strong> (<em>float</em><em> or </em><em>numpy.ndarray</em>) – Frequency in GHz</p></li>
+<li><p><strong>area</strong> – Beam area in steradians</p></li>
+<li><p><strong>ff_em</strong> (<em>float</em>) – Free-free emission measure</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Evaluated function</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mapext.emission.emission_models.freeFree_7000k.ff_em">
+<span class="sig-name descname"><span class="pre">ff_em</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Parameter('ff_em',</span> <span class="pre">value=100.0,</span> <span class="pre">bounds=(0,</span> <span class="pre">None))</span></em><a class="headerlink" href="#mapext.emission.emission_models.freeFree_7000k.ff_em" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mapext.emission.emission_models.freeFree_7000k.fit_deriv">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fit_deriv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nu</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">area</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ff_em</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mapext/emission/emission_models.html#freeFree_7000k.fit_deriv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mapext.emission.emission_models.freeFree_7000k.fit_deriv" title="Link to this definition"></a></dt>
+<dd><p>Evaluate the first derivitives of emission model with respect to input parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nu</strong> (<em>float</em><em> or </em><em>numpy.ndarray</em>) – Frequency in GHz</p></li>
+<li><p><strong>area</strong> – Beam area in steradians</p></li>
+<li><p><strong>ff_em</strong> (<em>float</em>) – Free-free emission measure</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>First derivitives with repect to input parameters in order.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mapext.emission.emission_models.freeFree_7000k.param_names">
+<span class="sig-name descname"><span class="pre">param_names</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('ff_em',)</span></em><a class="headerlink" href="#mapext.emission.emission_models.freeFree_7000k.param_names" title="Link to this definition"></a></dt>
+<dd><p>Names of the parameters that describe models of this type.</p>
+<p>The parameters in this tuple are in the same order they should be passed in
+when initializing a model of a specific type.  Some types of models, such
+as polynomial models, have a different number of parameters depending on
+some other property of the model, such as the degree.</p>
+<p>When defining a custom model class the value of this attribute is
+automatically set by the <cite>~astropy.modeling.Parameter</cite> attributes defined
+in the class body.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mapext.emission.emission_models.synchrotron_1comp">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mapext.emission.emission_models.</span></span><span class="sig-name descname"><span class="pre">synchrotron_1comp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">synch_S1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">synch_alp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-0.7</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mapext/emission/emission_models.html#synchrotron_1comp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mapext.emission.emission_models.synchrotron_1comp" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">FittableEmissionModel</span></code></p>
+<p>Emission model for 1-component synchrotron emission without spectral break or curvature (power law).</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>synch_S1</strong> – Synchrotron flux at 1GHz</p></li>
+<li><p><strong>synch_alp</strong> – Synchrotron spectral index</p></li>
+</ul>
+</dd>
+<dt class="field-even">Formulism<span class="colon">:</span></dt>
+<dd class="field-even"><div class="math notranslate nohighlight">
+\[S^\mathrm{\,sync}_\nu = S1 * \nu^\alpha\]</div>
+<p>For details see <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1996ima..book.....C/abstract">Carol and Oslie (2007)</a> .</p>
+</dd>
+<dt class="field-odd">Note<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Either all or none of input <code class="docutils literal notranslate"><span class="pre">nu</span></code>, <code class="docutils literal notranslate"><span class="pre">area</span></code>, <code class="docutils literal notranslate"><span class="pre">synch_S1</span></code> and <code class="docutils literal notranslate"><span class="pre">synch_alp</span></code> must be provided consistently with compatible units or as unitless numbers.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="mapext.emission.emission_models.synchrotron_1comp.evaluate">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nu</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">area</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">synch_S1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">synch_alp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mapext/emission/emission_models.html#synchrotron_1comp.evaluate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mapext.emission.emission_models.synchrotron_1comp.evaluate" title="Link to this definition"></a></dt>
+<dd><p>Evaluate the emission model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nu</strong> (<em>float</em><em> or </em><em>numpy.ndarray</em>) – Frequency in GHz</p></li>
+<li><p><strong>area</strong> – Beam area in steradians</p></li>
+<li><p><strong>synch_S1</strong> – Synchrotron flux at 1GHz</p></li>
+<li><p><strong>synch_alp</strong> – Synchrotron spectral index</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Evaluated function</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mapext.emission.emission_models.synchrotron_1comp.fit_deriv">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fit_deriv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nu</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">area</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">synch_S1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">synch_alp</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mapext/emission/emission_models.html#synchrotron_1comp.fit_deriv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mapext.emission.emission_models.synchrotron_1comp.fit_deriv" title="Link to this definition"></a></dt>
+<dd><p>Evaluate the first derivitives of emission model with respect to input parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nu</strong> (<em>float</em><em> or </em><em>numpy.ndarray</em>) – Frequency in GHz</p></li>
+<li><p><strong>area</strong> – Beam area in steradians</p></li>
+<li><p><strong>synch_S1</strong> – Synchrotron flux at 1GHz</p></li>
+<li><p><strong>synch_alp</strong> – Synchrotron spectral index</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>First derivitives with repect to input parameters in order.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mapext.emission.emission_models.synchrotron_1comp.param_names">
+<span class="sig-name descname"><span class="pre">param_names</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('synch_S1',</span> <span class="pre">'synch_alp')</span></em><a class="headerlink" href="#mapext.emission.emission_models.synchrotron_1comp.param_names" title="Link to this definition"></a></dt>
+<dd><p>Names of the parameters that describe models of this type.</p>
+<p>The parameters in this tuple are in the same order they should be passed in
+when initializing a model of a specific type.  Some types of models, such
+as polynomial models, have a different number of parameters depending on
+some other property of the model, such as the degree.</p>
+<p>When defining a custom model class the value of this attribute is
+automatically set by the <cite>~astropy.modeling.Parameter</cite> attributes defined
+in the class body.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mapext.emission.emission_models.synchrotron_1comp.synch_S1">
+<span class="sig-name descname"><span class="pre">synch_S1</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Parameter('synch_S1',</span> <span class="pre">value=1.0,</span> <span class="pre">bounds=(0,</span> <span class="pre">None))</span></em><a class="headerlink" href="#mapext.emission.emission_models.synchrotron_1comp.synch_S1" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mapext.emission.emission_models.synchrotron_1comp.synch_alp">
+<span class="sig-name descname"><span class="pre">synch_alp</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Parameter('synch_alp',</span> <span class="pre">value=-0.7)</span></em><a class="headerlink" href="#mapext.emission.emission_models.synchrotron_1comp.synch_alp" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mapext.emission.emission_models.thermalDust">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mapext.emission.emission_models.</span></span><span class="sig-name descname"><span class="pre">thermalDust</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tdust_Td</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tdust_tau</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tdust_beta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.5</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mapext/emission/emission_models.html#thermalDust"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mapext.emission.emission_models.thermalDust" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">FittableEmissionModel</span></code></p>
+<p>Emission model for the Planck modified thermal dust curve - a modified blackbody with opacity varying as frequency to some dust spectral index.</p>
+<dl class="field-list">
+<dt class="field-odd">Params tdust_Td<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Thermal dust temperature</p>
+</dd>
+<dt class="field-even">Params tdust_tau<span class="colon">:</span></dt>
+<dd class="field-even"><p>Thermal dust opacity (given as log_10(tau))</p>
+</dd>
+<dt class="field-odd">Params tdust_beta<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Thermal dust spectral index</p>
+</dd>
+<dt class="field-even">Formulism<span class="colon">:</span></dt>
+<dd class="field-even"><div class="math notranslate nohighlight">
+\[S^\mathrm{td}_\nu = \frac{2k_B\Omega\nu^3}{c^2} \frac{1}{e^{h\nu/k_BT_b}-1} \cdot \tau_{\nu_0} \cdot \left(\frac{\nu}{\nu_0}\right)^\beta\]</div>
+<p>For details see <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2001ApJ...551..807D/abstract">Draine and Li (2001)</a> .</p>
+</dd>
+<dt class="field-odd">Notes<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Either all or none of input <code class="docutils literal notranslate"><span class="pre">nu</span></code>, <code class="docutils literal notranslate"><span class="pre">area</span></code>,  <code class="docutils literal notranslate"><span class="pre">tdust_Td</span></code>, <code class="docutils literal notranslate"><span class="pre">tdust_tau</span></code> and <code class="docutils literal notranslate"><span class="pre">tdust_beta</span></code> must be provided consistently with compatible units or as unitless numbers.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="mapext.emission.emission_models.thermalDust.evaluate">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nu</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">area</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tdust_Td</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tdust_tau</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tdust_beta</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mapext/emission/emission_models.html#thermalDust.evaluate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mapext.emission.emission_models.thermalDust.evaluate" title="Link to this definition"></a></dt>
+<dd><p>Evaluate the emission model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nu</strong> (<em>float</em><em> or </em><em>numpy.ndarray</em>) – Frequency in GHz</p></li>
+<li><p><strong>area</strong> – Beam area in steradians</p></li>
+</ul>
+</dd>
+<dt class="field-even">Params tdust_Td<span class="colon">:</span></dt>
+<dd class="field-even"><p>Thermal dust temperature</p>
+</dd>
+<dt class="field-odd">Params tdust_tau<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Thermal dust opacity (given as log_10(tau))</p>
+</dd>
+<dt class="field-even">Params tdust_beta<span class="colon">:</span></dt>
+<dd class="field-even"><p>Thermal dust spectral index</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Evaluated function</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float or numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mapext.emission.emission_models.thermalDust.fit_deriv">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fit_deriv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nu</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">area</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tdust_Td</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tdust_tau</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tdust_beta</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mapext/emission/emission_models.html#thermalDust.fit_deriv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mapext.emission.emission_models.thermalDust.fit_deriv" title="Link to this definition"></a></dt>
+<dd><p>Evaluate the first derivitives of emission model with respect to input parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nu</strong> (<em>float</em><em> or </em><em>numpy.ndarray</em>) – Frequency in GHz</p></li>
+<li><p><strong>area</strong> – Beam area in steradians</p></li>
+</ul>
+</dd>
+<dt class="field-even">Params area<span class="colon">:</span></dt>
+<dd class="field-even"><p>Thermal dust temperature</p>
+</dd>
+<dt class="field-odd">Params tdust_tau<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Thermal dust opacity (given as log_10(tau))</p>
+</dd>
+<dt class="field-even">Params tdust_beta<span class="colon">:</span></dt>
+<dd class="field-even"><p>Thermal dust spectral index</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>First derivitives with repect to input parameters in order.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mapext.emission.emission_models.thermalDust.param_names">
+<span class="sig-name descname"><span class="pre">param_names</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('tdust_Td',</span> <span class="pre">'tdust_tau',</span> <span class="pre">'tdust_beta')</span></em><a class="headerlink" href="#mapext.emission.emission_models.thermalDust.param_names" title="Link to this definition"></a></dt>
+<dd><p>Names of the parameters that describe models of this type.</p>
+<p>The parameters in this tuple are in the same order they should be passed in
+when initializing a model of a specific type.  Some types of models, such
+as polynomial models, have a different number of parameters depending on
+some other property of the model, such as the degree.</p>
+<p>When defining a custom model class the value of this attribute is
+automatically set by the <cite>~astropy.modeling.Parameter</cite> attributes defined
+in the class body.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mapext.emission.emission_models.thermalDust.tdust_Td">
+<span class="sig-name descname"><span class="pre">tdust_Td</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Parameter('tdust_Td',</span> <span class="pre">value=20.0,</span> <span class="pre">bounds=(0,</span> <span class="pre">None))</span></em><a class="headerlink" href="#mapext.emission.emission_models.thermalDust.tdust_Td" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mapext.emission.emission_models.thermalDust.tdust_beta">
+<span class="sig-name descname"><span class="pre">tdust_beta</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Parameter('tdust_beta',</span> <span class="pre">value=1.5)</span></em><a class="headerlink" href="#mapext.emission.emission_models.thermalDust.tdust_beta" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mapext.emission.emission_models.thermalDust.tdust_tau">
+<span class="sig-name descname"><span class="pre">tdust_tau</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Parameter('tdust_tau',</span> <span class="pre">value=-4.0)</span></em><a class="headerlink" href="#mapext.emission.emission_models.thermalDust.tdust_tau" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-mapext.emission.sedfitter">
+<span id="mapext-emission-sedfitter-module"></span><h2>mapext.emission.sedfitter module<a class="headerlink" href="#module-mapext.emission.sedfitter" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="mapext.emission.sedfitter.sedFitter_LSQ">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mapext.emission.sedfitter.</span></span><span class="sig-name descname"><span class="pre">sedFitter_LSQ</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mapext/emission/sedfitter.html#sedFitter_LSQ"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mapext.emission.sedfitter.sedFitter_LSQ" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Least Squares SED Fitter class.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<em>mapext.FittableEmissionModel</em><em> or </em><em>astropy.CompositeModel</em>) – SED model to fit</p></li>
+<li><p><strong>fluxes</strong> (<em>mapext.astroSrc object</em><em>, </em><em>numpy.ndarray</em><em> or </em><em>3 arrays/lists</em>) – Source flux measurements to fit to. Can be entered as a mapext.astroSrc object, the flux numpy.ndarray from a source, or as three lists for frequency [Hz] flux density and its uncertainty [Jy]</p></li>
+<li><p><strong>beam_area</strong> (<em>float</em>) – Beam area in steradians</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="mapext.emission.sedfitter.sedFitter_LSQ.calc_jacobian">
+<span class="sig-name descname"><span class="pre">calc_jacobian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nu</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mapext/emission/sedfitter.html#sedFitter_LSQ.calc_jacobian"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mapext.emission.sedfitter.sedFitter_LSQ.calc_jacobian" title="Link to this definition"></a></dt>
+<dd><p>Calculate the Jacobian matrix of derivitives for a compund model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Params model<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Model to evalue the jacobian for</p>
+</dd>
+<dt class="field-even">Params nu<span class="colon">:</span></dt>
+<dd class="field-even"><p>Frequency [Hz]</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Jacobian matrix of the model</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mapext.emission.sedfitter.sedFitter_LSQ.fitSED">
+<span class="sig-name descname"><span class="pre">fitSED</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/mapext/emission/sedfitter.html#sedFitter_LSQ.fitSED"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mapext.emission.sedfitter.sedFitter_LSQ.fitSED" title="Link to this definition"></a></dt>
+<dd><p>Run fitter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Fit information</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Same as model input</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mapext.emission.sedfitter.sedFitter_LSQ.write_model_to_astroSrc">
+<span class="sig-name descname"><span class="pre">write_model_to_astroSrc</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/mapext/emission/sedfitter.html#sedFitter_LSQ.write_model_to_astroSrc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mapext.emission.sedfitter.sedFitter_LSQ.write_model_to_astroSrc" title="Link to this definition"></a></dt>
+<dd><p>Write the model to the astroSrc object.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-mapext.emission">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-mapext.emission" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="mapext.core.html" class="btn btn-neutral float-left" title="mapext.core package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="mapext.photometry.html" class="btn btn-neutral float-right" title="mapext.photometry package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, tjrennie.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
