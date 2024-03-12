@@ -20,7 +20,7 @@ class FittableEmissionModel(FittableModel):
     
     @staticmethod
     def fit_deriv(*args):
-        return self.deriv(self, *args)
+        return FittableEmissionModel.deriv(self, *args)
 
 # Synchrotron emission model
 class synchrotron_1comp(FittableEmissionModel):
